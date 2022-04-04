@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<!-- 별명 달기  Mapper 파일에 있는 resutlType과 연결된다.  -->
+		<typeAlias type="com.tis.model.userDto" alias="UserDto" />
+		<typeAlias type="com.tis.model.BoardDto" alias="BoardDto" />
+		<typeAlias type="com.tis.model.attendDto" alias="AttendDto" />
+		<typeAlias type="com.tis.model.lectureDto" alias="LectureDto" />
+	</typeAliases>
+</configuration>
+
+
+
+
+
+
