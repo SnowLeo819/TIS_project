@@ -12,9 +12,11 @@ import lombok.ToString;
 @Component
 public class MemberDto {
 	private int no;
-	private String name;
+	private String id;
+	private String password;
 	private String code;
-	private String subject;
+	private String name;
+	private String subject; // 과목
 	private String tell;
 	private String email;
 	private String regDate;

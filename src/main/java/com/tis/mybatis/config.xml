@@ -3,7 +3,7 @@
 <configuration>
 	<typeAliases>
 		<!-- 별명 달기  Mapper 파일에 있는 resutlType과 연결된다.  -->
-		<typeAlias type="com.tis.model.userDto" alias="UserDto" />
+		<typeAlias type="com.tis.model.userDto" alias="MemberDto" />
 		<typeAlias type="com.tis.model.BoardDto" alias="BoardDto" />
 		<typeAlias type="com.tis.model.attendDto" alias="AttendDto" />
 		<typeAlias type="com.tis.model.lectureDto" alias="LectureDto" />

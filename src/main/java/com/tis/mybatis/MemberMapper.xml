@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tis.mybatis.member">
+	<insert id="insertMember" parameterType="MemberDto">
+		INSERT INTO MEMBER VALUES (SEQ_MEMBER.NEXTVAL,
+								   #{id},
+								   #{password},
+								   #{code},
+								   #{name},
+								   #{subject},
+								   #{tell},
+								   #{email},
+								   SYSDATE
+		)
+	</insert>
+	
+	<update id="updateMember" parameterType="MemberDto">
+		UPDATE MEMBER SET CODE     =  #{code}, 
+		                  NAME     =  #{name},
+		                  SUBJECT  =  #{subject}, 
+		                  TELL     =  #{tell},
+		                  EMAIL    =  #{email}, 
+		                  WHERE ID =  #{id} AND PASSWORD = #{password}
+	</update>
+	
+	<delete id="deleteMember" parameterType="MemberDto">
+		DELETE FROM MEMBER WHERE ID = #{id} AND PASSWORD = #{password}
+	</delete>	
+</mapper>
