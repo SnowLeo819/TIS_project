@@ -14,6 +14,6 @@ public class LectureDto {
 	private int no;
 	private String subject;
 	private String teacher;
-	private String date;
+	private String selectDate;
 	private String contents;
 }
