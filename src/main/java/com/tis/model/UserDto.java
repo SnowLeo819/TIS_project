@@ -14,7 +14,6 @@ public class UserDto {
 	private int no;
 	private String name;
 	private String code;
-	private String school;
 	private String subject;
 	private String tell;
 	private String email;
