@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tis.mybatis.attend">
+
+<!-- 출석시간 -->
+<insert id="AttendCheck" parameterType="AttendDto" >
+	INSERT INTO ATTEND VALUES (SEQ_ATTEND.NEXTVAL ,#{code}, #{name}, #{subject}, TRUNC(SYSDATE , 'DD'), SYSDATE,null,#{state})
+</insert>
+
+<!-- 과목출석현황 -->
+<select id="getAllAttend" parameterType="String" resultType="AttendDto">
+   SELECT * FROM ATTEND WHERE subject = #{subject}
+</select>
+
+<!-- 출석한번조회 -->
+<select id="getTodayAttend" parameterType="String" resultType="AttendDto">
+	SELECT * FROM ATTEND WHERE CODE = #{code} AND ATTENDDATE = TRUNC(SYSDATE , 'DD')
+</select>
+
+<!-- 출석일수카운터 -->
+<select id="getAllAttendCount" parameterType="String" resultType="Integer">
+	SELECT count(*) FROM ATTEND WHERE CODE = #{code}
+</select>
+
+<!-- 퇴실시간 -->
+<update id="AttendOut" parameterType="AttendDto" >
+	UPDATE ATTEND SET LEAVETIME = SYSDATE, STATE = #{state} WHERE CODE = #{code} AND ATTENDDATE = TRUNC(SYSDATE , 'DD')
+</update>
+
+<!-- 개인정보보기 -->
+	<select id="AttendOneSelect" parameterType="Integer" resultType="AttendDto">
+		SELECT * FROM ATTEND WHERE no = #{no}
+	</select>
+	
+<!--출결수정-->
+	<update id="AttendUpdate" parameterType="AttendDto">
+			
+			UPDATE ATTEND SET 
+			ATTENDTIME = TO_date(#{attendTime},'HH24:MI:SS'),
+			LEAVETIME = TO_date(#{leaveTime},'HH24:MI:SS'),			
+			state=#{state}
+			
+			WHERE no=#{no}
+	</update>
+	
+<!-- 날짜리스트 -->
+	<select id="selectDate" parameterType="String" resultType="AttendDto">
+		 SELECT NO, CODE, NAME, SUBJECT, TO_CHAR(ATTENDDATE, 'yyyy-mm-dd') AS ATTENDDATE,TO_CHAR(attendtime, 'hh:mm:ss') as attendtime, TO_CHAR(leavetime, 'hh:mm:ss') as leavetime, state FROM ATTEND WHERE ATTENDDATE = to_date(#{attendDate},'yyyy-MM-dd')
+	</select>		
+
+<!--출결시간차-->
+   <select id="AttendState" parameterType="AttendDto"  resultType="Integer">
+   SELECT ROUND((SYSDATE-ATTENDtime)*24) FROM attend
+      WHERE CODE=#{code} and attendDate = to_char(sysdate,'yyyy-mm-dd')
+   </select>
+
+</mapper>

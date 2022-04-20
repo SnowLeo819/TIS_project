@@ -6,30 +6,25 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface BoardService {
-	public int insertBoard(BoardDto boardDto);
-	
-	public int insertReplyBoard(BoardDto boardDto);	
-	//글 수정
-	public int updateBoard(BoardDto boardDto);
+	// 입력
+		public int insertBoard(BoardDto boardDto);
+		
+		// 수정
+		public int updateBoard(BoardDto boardDto);
 
-	// 답글 쓰기
-	public int updateReLevel(BoardDto boardDto);
-	
-	public int getMaxRegroup();
-	
-	public List<BoardDto> getAllList(int start, int end,String search_select, String search_word);
-	
-	public List<BoardDto> getSearchAllList(String search_select, String search_word);
-	
-	public BoardDto getSelectOne(int no);
-	
-	public BoardDto getPrevSelect(int num);
-	
-	public BoardDto getNextSelect(int num);
-	
-	public int updateHit(int no);
-	
-	public int deleteBoard(BoardDto boardDto);
-	
-	public int getTotal(String search_select,String search_word);
+		//검색
+		public List<BoardDto> getCateBoard(int start, int end,String search_select, String search_word, String category);
+		public int getTotal(String search_select,String search_word, String cate_select);
+		public BoardDto getTarget(int target_num, String search_select, String search_word, String cate_select);
+		
+		
+		// 보여주기
+		public BoardDto getSelectOne(int no);
+		public int updateHit(int no);
+
+		//삭제
+		public int deleteBoard(int no);
+		
+//		public BoardDto getPrevSelect(int num);
+//		public BoardDto getNextSelect(int num);
 }

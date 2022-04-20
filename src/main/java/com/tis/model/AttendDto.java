@@ -19,4 +19,7 @@ public class AttendDto {
 	private String attendTime;
 	private String leaveTime;
 	private String state;
+	public AttendDto() {
+		
+	}
 }

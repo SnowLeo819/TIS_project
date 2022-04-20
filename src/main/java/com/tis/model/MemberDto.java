@@ -1,5 +1,8 @@
 package com.tis.model;
 
+
+import java.sql.Date;
+
 import org.springframework.stereotype.Component;
 
 import lombok.Getter;
@@ -14,10 +17,14 @@ public class MemberDto {
 	private int no;
 	private String id;
 	private String password;
-	private String code;
 	private String name;
-	private String subject; // 과목
+	private String code;
+	private String position;
+	private String subject;
 	private String tell;
+	private String tellFirst;
+	private String tellMiddle;
+	private String tellLast;
 	private String email;
-	private String regDate;
+	private Date regDate;
 }

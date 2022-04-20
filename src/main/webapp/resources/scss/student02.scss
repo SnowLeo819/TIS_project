@@ -1,0 +1,266 @@
+@import "vars";
+@import "mixins";
+
+body {
+  margin: 0px;
+  line-height: 1.4;
+  height: auto;
+  font-size: 16px;
+  font-weight: 400;
+  word-break: keep-all;
+  font-family: "Noto Sans KR", sans-serif;
+  color: #222;
+  .contentLayout {
+    //margin: 0 auto;
+    //overflow: hidden;
+    .contentLayoutIn {
+      display: block;
+      .contentArea {
+        padding: 10px;
+        background: #c5e1f7;
+        #form1 {
+          display: block;
+          margin-top: 0em;
+          .prog_list {
+            display: table;
+            table-layout: fixed;
+            width: 100%;
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+            .type01 {
+              display: table-cell;
+              list-style: none;
+              margin: 0px;
+              padding: 0px;
+              .prog_listBox {
+                display: block;
+                margin: 0 0 0 2px;
+                background: #fff;
+                text-decoration: none;
+                color: #222;
+                .tit {
+                  display: block;
+                  height: 46px;
+                  line-height: 46px;
+                  background: #d04040;
+                  color: #fff;
+                  font-weight: 500;
+                  font-size: 20px;
+                  .titIn {
+                    display: block;
+                    position: relative;
+                    padding: 0 18px 0 40px;
+                  }
+                }
+                .prog_info {
+                  display: table;
+                  width: 100%;
+                  height: 90px;
+                  padding: 10px 0;
+                  border-bottom: 1px solid #d04040;
+                  .prog_infoBox {
+                    display: table-cell;
+                    vertical-align: middle;
+                    text-align: center;
+                    padding: 0 10px;
+                    .txt01 {
+                      display: block;
+                      font-size: 22px;
+                      .pointC {
+                        color: #c12121;
+                        font-weight: 500;
+                        font-size: 25px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            .type02 {
+              display: table-cell;
+              list-style: none;
+              margin: 0px;
+              padding: 0px;
+              .prog_listBox {
+                display: block;
+                margin: 0 0 0 2px;
+                background: #fff;
+                text-decoration: none;
+                color: #222;
+                .tit {
+                  display: block;
+                  height: 46px;
+                  line-height: 46px;
+                  background: #0d7fa0;
+                  color: #fff;
+                  font-weight: 500;
+                  font-size: 20px;
+                  .titIn {
+                    display: block;
+                    position: relative;
+                    padding: 0 18px 0 40px;
+                  }
+                }
+                .prog_info {
+                  border-bottom: 1px solid #0d7fa0;
+                  display: table;
+                  width: 100%;
+                  height: 90px;
+                  padding: 10px 0;
+                  .prog_infoBox {
+                    display: table-cell;
+                    vertical-align: middle;
+                    text-align: center;
+                    padding: 0 10px;
+                    .txt01 {
+                      display: block;
+                      font-size: 25px;
+                      .pointC {
+                        color: #026c8a;
+                        font-weight: 500;
+                        font-size: 25px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            .type03 {
+              display: table-cell;
+              list-style: none;
+              margin: 0px;
+              padding: 0px;
+              .prog_listBox {
+                display: block;
+                margin: 0 0 0 2px;
+                background: #fff;
+                text-decoration: none;
+                color: #222;
+                .tit {
+                  background: #448405;
+                  display: block;
+                  height: 46px;
+                  line-height: 46px;
+                  color: #fff;
+                  font-weight: 500;
+                  font-size: 20px;
+                  .titIn {
+                    display: block;
+                    position: relative;
+                    padding: 0 18px 0 40px;
+                  }
+                }
+                .prog_info {
+                  border-bottom: 1px solid #448405;
+                  background: #f5f7f9;
+                  display: table;
+                  width: 100%;
+                  height: 90px;
+                  padding: 10px 0;
+                  .prog_infoBox {
+                    display: table-cell;
+                    vertical-align: middle;
+                    text-align: center;
+                    padding: 0 10px;
+                    font-size: 25px;
+                  }
+                }
+              }
+            }
+            .type07 {
+              display: table-cell;
+              list-style: none;
+              margin: 0px;
+              padding: 0px;
+              .prog_listBox {
+                display: block;
+                margin: 0 0 0 2px;
+                background: #fff;
+                text-decoration: none;
+                color: #222;
+                .tit {
+                  background: #aa6412;
+                  display: block;
+                  height: 46px;
+                  line-height: 46px;
+                  color: #fff;
+                  font-weight: 500;
+                  font-size: 20px;
+                  .titIn {
+                    display: block;
+                    position: relative;
+                    padding: 0 18px 0 40px;
+                    display: block;
+                    height: 46px;
+                    line-height: 46px;
+                    background: #d04040;
+                    color: #fff;
+                    font-weight: 500;
+                    font-size: 20px;
+                  }
+                }
+                .prog_info.prog_noData {
+                  border-bottom: 1px solid #aa6412;
+                  background: #f5f7f9;
+                  display: table;
+                  width: 100%;
+                  height: 90px;
+                  padding: 10px 0;
+                  .prog_infoBox {
+                    display: table-cell;
+                    vertical-align: middle;
+                    text-align: center;
+                    padding: 0 10px;
+                    font-size: 25px;
+                  }
+                }
+              }
+            }
+          }
+          .idxList {
+            margin: 10px 0 0 0;
+            display: block;
+            .eod_layout02 {
+              overflow: hidden;
+              margin: -10px 0 0 -10px;
+              list-style: none;
+              padding: 0px;
+              li {
+                float: left;
+                width: 100%;
+                list-style: none;
+                margin: 0px;
+                padding: 0px;
+                .eod_layoutIn {
+                  min-height: 510px;
+                  border: 1px solid #d7d7d7;
+                  padding: 20px;
+                  background: #fff;
+                  margin: 10px 0 0 10px;
+                  .floatingBox {
+                    overflow: hidden;
+                    display: block;
+                    border-bottom: 1px solid #d7d7d7;
+                    .floatingBoxL {
+                      //float: left;
+                      list-style: none;
+                      margin: 0px;
+                      padding: 0px;
+                      h3 {
+                        margin: 10px 0 20px 0;
+                        font-size: 25px;
+                        font-weight: 500;
+                        line-height: 1.1;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

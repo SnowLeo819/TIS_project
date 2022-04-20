@@ -1,0 +1,67 @@
+.searchBox { width: 100%; }
+
+.searchBox form { width: 100%; height: 50px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+
+.searchBox form label { display: inline-block; width: 30%; height: 30px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+
+.searchBox form label span { font-size: 14px; width: 50%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+
+.searchBox form label select { height: 100%; width: 50%; border: none; font-size: 14px; background-color: #eee; text-align: center; }
+
+.searchBox form label.positionBox { width: 20%; }
+
+.searchBox form label.subjectBox { width: 50%; }
+
+.searchBox form label.subjectBox span { width: 20%; }
+
+.searchBox form label.subjectBox select { width: 80%; }
+
+.searchBox form label.nameBox { width: 30%; }
+
+.searchBox form label.nameBox span { width: 33.3%; }
+
+.searchBox form label.nameBox input { width: 66.6%; height: 100%; padding: 5px; border: 2px solid #eee; }
+
+.searchBox form .btn { padding: 0; height: 30px; width: 10%; background-color: #eee; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+
+.searchBox form .btn span { font-size: 18px; }
+
+.viewer { width: 100%; height: calc(100% - 50px); border: 1px solid #ccc; overflow-y: auto; overflow-x: hidden; background-color: #fafafa; position: relative; }
+
+.viewer table { width: 100%; position: relative; }
+
+.viewer table thead { position: -webkit-sticky; position: sticky; top: 0; height: 30px; -webkit-box-shadow: 1px 1px 3px rgba(51, 51, 51, 0.3); box-shadow: 1px 1px 3px rgba(51, 51, 51, 0.3); background-color: white; }
+
+.viewer table thead th { border-left: 1px solid #ccc; font-size: 16px; vertical-align: middle; }
+
+.viewer table thead th:first-child { border-left: none; }
+
+.viewer table tbody tr td { border: 1px solid #ccc; padding: 3px 0; text-align: center; }
+
+.info { width: 100%; height: 100%; padding-top: 20px; }
+
+.info table { width: 100%; height: 100%; border-collapse: collapse; border-bottom: 1px solid #ccc; }
+
+.info table tr th, .info table tr td { border-top: 1px solid #ccc; }
+
+.info table tr th { padding: 15px; font-size: 16px; background-color: whitesmoke; font-weight: 700; text-align: center; }
+
+.info table tr th.memo { vertical-align: middle; }
+
+.info table tr th .required { margin-left: 3px; color: red; font-size: 12px; vertical-align: top; }
+
+.info table tr td { height: 10%; padding-left: 30px; vertical-align: middle; }
+
+.info table tr td input, .info table tr td select { border: 1px solid #ccc; height: 30px; width: 150px; padding: 5px; border-radius: 0; }
+
+.info table tr td input.phone, .info table tr td select.phone { width: 100px; }
+
+.info table tr td select.short { width: 70px; }
+
+.info table tr td input[type="number"]::-webkit-outer-spin-button, .info table tr td input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+.info table tr td .memo { height: 200px; }
+
+.info table tr td textarea { min-height: 190px; resize: none; padding: 10px; }
+
+.info table tr td textarea:not(#summernote) button, .info table tr td textarea:not(#summernote) .sticker { height: 30px; padding: 0 10px; -webkit-box-sizing: border-box; box-sizing: border-box; background-color: #111; border: 1px solid #d9d9d9; color: #fff; border-radius: 5px; min-width: 80px; display: -webkit-inline-box; display: -ms-inline-flexbox; display: inline-flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; margin-left: 10px; font-size: 12px; }

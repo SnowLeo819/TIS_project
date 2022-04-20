@@ -1,0 +1,114 @@
+@import "vars";
+@import "mixins";
+
+// calendar
+
+.calendarBox {
+  // z-index: 3;
+  .calendar {
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.2);
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      span {
+        font-size: 22px;
+      }
+      button {
+        background: none;
+        outline: none;
+        border: none;
+      }
+      .monthBox {
+        .month {
+          font-weight: 700;
+        }
+      }
+    }
+    .days {
+      margin-bottom: 10px;
+      margin-top: 10px;
+    }
+    .days,
+    .dates {
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        li {
+          height: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: calc(100% / 7 - 4px);
+          margin: 2px;
+          cursor: pointer;
+          background-color: #666;
+          border-radius: 10px;
+          text-align: center;
+          &.on {
+            background-color: #111;
+          }
+          &.sun {
+            background-color: rgb(236, 17, 17);
+          }
+          &.sat {
+            background-color: rgb(17, 119, 236);
+          }
+          &.today {
+            background-color: rgb(17, 148, 236);
+            font-weight: 700;
+            // @include longShadow(darken(rgb(17, 148, 236), 10), right, 100);
+          }
+          &.blank {
+            visibility: hidden;
+            opacity: 0;
+            pointer-events: none;
+          }
+          span {
+            overflow: hidden;
+            width: 100%;
+            color: #fff;
+          }
+        }
+      }
+    }
+    .dates {
+      ul {
+        li {
+          display: block;
+          padding-top: 10px;
+          height: 120px;
+          text-align: left;
+          span {
+            margin-left: 10px;
+          }
+          .txtBox {
+            // margin-top: 10px;
+            ul {
+              width: 100%;
+              display: block;
+              .item {
+                height: 20px;
+                line-height: 20px;
+                margin: 5px 0;
+                padding: 0;
+                width: 100%;
+                border-radius: 0;
+                background-color: rgba(255, 255, 255, 0.6);
+                p {
+                  // pointer-events: none;
+                  padding-left: 8px;
+                  margin: 0;
+                  font-size: 16px;
+                  font-weight: 500;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

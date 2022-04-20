@@ -13,16 +13,15 @@ import lombok.ToString;
 
 public class BoardDto {
 	private int no;
-	private String subject;
-	private String name;
-	private String email;
-	private String password;
+	private String title;
+	private String category;
+	private String code;
+	private String id;
 	private String regDate;
-	private int reGroup;
-	private int reLevel;
-	private int reStep;
+	private int reGroup; // 답글 안쓰면 나중에 삭제
+	private int reLevel; // 답글 안쓰면 나중에 삭제
+	private int reStep; // 답글 안쓰면 나중에 삭제
 	private int hit;
 	private String contents;
 	private int num;
-	private String id;
 }

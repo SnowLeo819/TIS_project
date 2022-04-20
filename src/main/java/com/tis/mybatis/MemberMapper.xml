@@ -1,29 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tis.mybatis.member">
+	<select id="isRegistered" parameterType="MemberDto"
+		resultType="MemberDto">
+		SELECT * FROM MEMBER WHERE ID = #{id} AND PASSWORD =
+		#{password}
+	</select>
+	<select id="getAllMemberList" resultType="MemberDto"
+		parameterType="HashMap">
+		SELECT * FROM MEMBER
+		<trim prefix="WHERE" prefixOverrides="AND">
+			<if test="searchPosition != null or searchPosition != ''">
+				CODE LIKE '%' || #{searchPosition} || '%'
+			</if>
+			<if test="searchSubject != null or searchSubject != ''">
+				AND SUBJECT LIKE '%' || #{searchSubject} || '%'
+			</if>
+			<if test="searchName != null or searchName != ''">
+				AND NAME LIKE'%' || #{searchName} || '%'
+			</if>
+			<if test="true">
+				AND CODE NOT LIKE '%' || 'M' || '%'
+			</if>
+		</trim>
+		ORDER BY NAME ASC
+	</select>
+
 	<insert id="insertMember" parameterType="MemberDto">
-		INSERT INTO MEMBER VALUES (SEQ_MEMBER.NEXTVAL,
-								   #{id},
-								   #{password},
-								   #{code},
-								   #{name},
-								   #{subject},
-								   #{tell},
-								   #{email},
-								   SYSDATE
+		INSERT INTO MEMBER
+		VALUES (
+		SEQ_MEMBER.NEXTVAL,
+		#{id},
+		#{password},
+		#{name},
+		#{code},
+		#{subject},
+		#{tell},
+		#{email},
+		#{regDate}
 		)
 	</insert>
-	
+
+	<select id="getMemberSelectOne" resultType="MemberDto"
+		parameterType="String">
+		SELECT * FROM MEMBER WHERE CODE = #{code}
+	</select>
+
+	<delete id="deleteMember" parameterType="String">
+		DELETE FROM MEMBER WHERE
+		CODE = #{code}
+	</delete>
+
 	<update id="updateMember" parameterType="MemberDto">
-		UPDATE MEMBER SET CODE     =  #{code}, 
-		                  NAME     =  #{name},
-		                  SUBJECT  =  #{subject}, 
-		                  TELL     =  #{tell},
-		                  EMAIL    =  #{email}, 
-		                  WHERE ID =  #{id} AND PASSWORD = #{password}
+		UPDATE MEMBER SET
+		NAME =
+		#{name},
+		SUBJECT = #{subject},
+		TELL = #{tell},
+		EMAIL = #{email},
+		REGDATE =
+		#{regDate}
+		WHERE CODE = #{code}
 	</update>
-	
-	<delete id="deleteMember" parameterType="MemberDto">
-		DELETE FROM MEMBER WHERE ID = #{id} AND PASSWORD = #{password}
-	</delete>	
+
+	<select id="idCheck" parameterType="String" resultType="Integer">
+		SELECT
+		COUNT(ID) FROM MEMBER WHERE ID = #{user_id}
+	</select>
 </mapper>

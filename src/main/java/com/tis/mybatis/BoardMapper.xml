@@ -3,11 +3,11 @@
 <mapper namespace="com.tis.mybatis.board">
 	<insert id="insertBoard" parameterType="BoardDto">
 		INSERT INTO BOARD VALUES (SEQ_BOARD.NEXTVAL,
-										#{subject},
-										#{name},
-										#{email},
-										#{password},
-										sysdate,
+										#{title},
+										#{category},
+										#{code},
+										#{id},
+										SYSDATE,
 										#{reGroup},
 										#{reLevel},
 										#{reStep},
@@ -15,23 +15,31 @@
 										#{contents}
 										)
 	</insert>
-		<select id="getAllBoard" resultType="BoardDto" parameterType="HashMap">
+	
+	<select id="getCateBoard" resultType="BoardDto" parameterType="HashMap">
 		SELECT * FROM 
 			(SELECT ROWNUM AS NUM,B.* FROM 
 				(SELECT * FROM BOARD
-					<if test="searchWord!=null and searchWord!=''" >
-						WHERE ${searchSelect}  LIKE  '%' || #{searchWord} || '%'
-					</if> 
-					ORDER BY REGROUP DESC, RELEVEL ASC
+					<trim prefix="WHERE" prefixOverrides="AND">
+						<if test="searchWord!=null and searchWord!=''" >
+							${searchSelect}  LIKE  '%' || #{searchWord} || '%'	
+						</if> 
+						<if test="cateSelect!=null and cateSelect!=''">
+							AND CATEGORY  LIKE  '%' || #{cateSelect} || '%'	
+						</if> 
+					</trim>
+					ORDER BY REGDATE DESC
 				) B
 			) 
 		WHERE NUM <![CDATA[>=]]> #{start} AND NUM <![CDATA[<=]]> #{end}
 	</select>
-		<select id="getSearchAllBoard" resultType="BoardDto" parameterType="HashMap">
-		SELECT * FROM BOARD 
-		WHERE ${searchSelect}  LIKE  '%' || #{searchWord} || '%'  ORDER BY REGROUP DESC, RELEVEL ASC 
-	</select>
-		
+	
+					<!-- ORDER BY REGROUP DESC, RELEVEL ASC -->
+	<update id="updateBoard" parameterType="BoardDto">
+		UPDATE BOARD SET SUBJECT = #{subject}, CONTENTS = #{contents} 
+		WHERE NO = #{no} AND PASSWORD = #{password}   
+	</update>
+	
 	<select id="getSelectOne" parameterType="Integer" resultType="BoardDto">
 		SELECT * FROM BOARD WHERE NO = #{no}
 	</select>
@@ -40,30 +48,38 @@
 		UPDATE BOARD SET HIT = HIT + 1 WHERE NO = #{no}
 	</update>
 	
-	<delete id="deleteBoard" parameterType="BoardDto">
-		DELETE FROM BOARD WHERE NO = #{no} AND PASSWORD = #{password}
+	<delete id="deleteBoard" parameterType="Integer">
+		DELETE FROM BOARD WHERE NO = #{no}
 	</delete>
 	
-	<select id="getMaxReGroup" resultType="Integer">
-		SELECT NVL(MAX(REGROUP),1) AS REGROUPMAX FROM BOARD
-	</select>
-
 	<select id="getTotal" resultType="Integer" parameterType="HashMap">
 		SELECT COUNT(*) AS TOTAL FROM BOARD
-		<if test="searchWord!=null and searchWord!=''" >
-			WHERE ${searchSelect}  LIKE  '%' || #{searchWord} || '%'
-		</if> 
+		<trim prefix="WHERE" prefixOverrides="AND">
+			<if test="searchWord!=null and searchWord!=''" >
+				${searchSelect}  LIKE  '%' || #{searchWord} || '%'	
+			</if> 
+			<if test="cateSelect!=null and cateSelect!=''">
+				AND CATEGORY  LIKE  '%' || #{cateSelect} || '%'	
+			</if> 
+		</trim>
 	</select>
 	
-	<update id="updateReLevel" parameterType="BoardDto">
-		UPDATE BOARD SET RELEVEL = RELEVEL + 1 
-		WHERE REGROUP = #{reGroup} AND 
-		RELEVEL  <![CDATA[ > ]]> #{reLevel}
-	</update>
+	<select id="getTarget" resultType="BoardDto" parameterType="HashMap">
+		SELECT * FROM 
+			(SELECT ROWNUM AS NUM, B.* FROM 
+				(SELECT * FROM BOARD
+					<trim prefix="WHERE" prefixOverrides="AND">
+						<if test="searchWord!=null and searchWord!=''" >
+							${searchSelect}  LIKE  '%' || #{searchWord} || '%'	
+						</if> 
+						<if test="cateSelect!=null and cateSelect!=''">
+							AND CATEGORY  LIKE  '%' || #{cateSelect} || '%'	
+						</if> 
+					</trim>
+					ORDER BY REGDATE DESC
+				) B
+			) 
+		WHERE NUM = #{targetNum}
+	</select>
 	
-	<update id="updateBoard" parameterType="BoardDto">
-		UPDATE BOARD SET SUBJECT = #{subject}, CONTENTS = #{contents} 
-		WHERE NO = #{no} AND PASSWORD = #{password}   
-		
-	</update>
 </mapper>

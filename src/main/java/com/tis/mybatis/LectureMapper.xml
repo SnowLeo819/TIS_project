@@ -1,4 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tis.mybatis.lecture">
+
+	<insert id="insertLecture" parameterType="LectureDto">
+		INSERT INTO LECTURE VALUES (SEQ_LECTURE.NEXTVAL,
+										#{subject},
+										#{teacher},
+										#{selectDate},
+										#{contents}
+										)
+	</insert>
+
+	<select id="getAllLecture" parameterType="LectureDto" resultType="LectureDto">
+		SELECT * FROM LECTURE WHERE SUBJECT = #{subject}
+	</select>
+	
+	<select id="getDateLecture" parameterType="LectureDto" resultType="LectureDto">
+		SELECT * FROM LECTURE WHERE SUBJECT = #{subject} AND SELECTDATE = TO_DATE(#{selectDate}, 'yyyy-mm-dd')
+	</select>
+
+
+	<update id="updateLecture" parameterType="LectureDto" >
+		UPDATE ATTEND SET SUBJECT = #{subject},TEACHER = #{teacher}, LEAVETIME = SYSDATE, SELECTDATE = #{selectDate}, CONTENTS = #{contents} WHERE no = #{no}
+	</update>
+
+
 </mapper>
