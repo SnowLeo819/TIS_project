@@ -150,11 +150,8 @@ public class BoardController {
 		String loggedCode = (String)session.getAttribute("loggedCode");
 		System.out.println(loggedCode.trim().equals(dtoCode.trim()));
 		
-		// 정보 담기
-		model.addAttribute("boardDto",boardDto);
-		
 		if(loggedCode.trim().equals(dtoCode.trim())) {
-			ScriptWriter.goNext(response, "../board/GoUpdate.do");
+			ScriptWriter.goNext(response, "../board/GoUpdate.do?no="+no);
 		} else {
 			System.out.println("다른사람이야");
 			ScriptWriter.alertAndBack(response, "작성자 본인만 수정 가능 합니다.");
@@ -162,9 +159,10 @@ public class BoardController {
 	}
 	
 	@GetMapping("/GoUpdate.do")
-	public String goUpdate(Model model) {
+	public String goUpdate(HttpServletRequest request, Model model) {
 			// 게시글 정보 가져오기
-			model.getAttribute("boardDto");
+			int no = Integer.parseInt(request.getParameter("no"));
+			boardDto = boardDao.getSelectOne(no);
 		
 			// 정보 담기
 			model.addAttribute("boardDto",boardDto);

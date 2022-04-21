@@ -25,33 +25,11 @@
     width: 100%;
     border-collapse: collapse;
     border-top: 1px solid #999;
-
     .required {
       color: #ff0000;
       display: inline-block;
       vertical-align: middle;
       margin-left: 10px;
-    }
-    td.space1 {
-      padding-left: 20px;
-    }
-    td.space2 {
-      padding-left: 40px;
-    }
-    td.space3 {
-      padding-left: 60px;
-    }
-    td.space4 {
-      padding-left: 80px;
-    }
-    td.space5 {
-      padding-left: 100px;
-    }
-    td.space6 {
-      padding-left: 120px;
-    }
-    td.space7 {
-      padding-left: 140px;
     }
     td,
     th {
@@ -113,37 +91,28 @@
       margin-left: 10px;
       font-size: 12px;
     }
-
-    .addrBox {
-      margin: 5px 0;
-      display: flex;
-      align-items: center;
-      input {
-        width: 70%;
-      }
-    }
   }
+}
 
-  .btns {
+.btns {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  .btn {
     display: flex;
+    width: 120px;
+    height: 60px;
+    border-radius: 5px;
+    margin: 0 5px;
+    color: #fff;
     justify-content: center;
-    margin-top: 50px;
-    .btn {
-      display: flex;
-      width: 120px;
-      height: 60px;
-      border-radius: 5px;
-      margin: 0 5px;
-      color: #fff;
-      justify-content: center;
-      align-items: center;
-      font-size: 16px;
-      &.btnConfirm {
-        background-color: rgb(3, 125, 206);
-      }
-      &.btnCancel {
-        background-color: rgb(114, 114, 114);
-      }
+    align-items: center;
+    font-size: 16px;
+    &.btnConfirm {
+      background-color: rgb(3, 125, 206);
+    }
+    &.btnCancel {
+      background-color: rgb(114, 114, 114);
     }
   }
 }
@@ -175,6 +144,7 @@
     width: calc(100% - 260px);
   }
 }
+
 .pagination {
   display: block;
   width: 100%;
@@ -201,6 +171,7 @@
     }
   }
 }
+
 .prevAndNext {
   margin: 50px 0;
   border-top: 1px solid #d9d9d9;

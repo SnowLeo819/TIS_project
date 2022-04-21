@@ -10,20 +10,6 @@
 
 .form table .required, .tableBox table .required { color: #ff0000; display: inline-block; vertical-align: middle; margin-left: 10px; }
 
-.form table td.space1, .tableBox table td.space1 { padding-left: 20px; }
-
-.form table td.space2, .tableBox table td.space2 { padding-left: 40px; }
-
-.form table td.space3, .tableBox table td.space3 { padding-left: 60px; }
-
-.form table td.space4, .tableBox table td.space4 { padding-left: 80px; }
-
-.form table td.space5, .tableBox table td.space5 { padding-left: 100px; }
-
-.form table td.space6, .tableBox table td.space6 { padding-left: 120px; }
-
-.form table td.space7, .tableBox table td.space7 { padding-left: 140px; }
-
 .form table td, .form table th, .tableBox table td, .tableBox table th { padding: 10px; border: none; border-bottom: 1px solid #999; text-align: center; vertical-align: middle; }
 
 .form table th, .tableBox table th { background-color: #d9d9d9; font-weight: 700; text-align: center; }
@@ -42,17 +28,13 @@
 
 .form table textarea:not(#summernote) button, .form table textarea:not(#summernote) .sticker, .tableBox table textarea:not(#summernote) button, .tableBox table textarea:not(#summernote) .sticker { height: 40px; padding: 0 10px; -webkit-box-sizing: border-box; box-sizing: border-box; background-color: #111; border: 1px solid #d9d9d9; color: #fff; border-radius: 5px; min-width: 80px; display: -webkit-inline-box; display: -ms-inline-flexbox; display: inline-flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; margin-left: 10px; font-size: 12px; }
 
-.form table .addrBox, .tableBox table .addrBox { margin: 5px 0; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+.btns { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; margin-top: 50px; }
 
-.form table .addrBox input, .tableBox table .addrBox input { width: 70%; }
+.btns .btn { display: -webkit-box; display: -ms-flexbox; display: flex; width: 120px; height: 60px; border-radius: 5px; margin: 0 5px; color: #fff; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; font-size: 16px; }
 
-.form .btns, .tableBox .btns { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; margin-top: 50px; }
+.btns .btn.btnConfirm { background-color: #037dce; }
 
-.form .btns .btn, .tableBox .btns .btn { display: -webkit-box; display: -ms-flexbox; display: flex; width: 120px; height: 60px; border-radius: 5px; margin: 0 5px; color: #fff; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; font-size: 16px; }
-
-.form .btns .btn.btnConfirm, .tableBox .btns .btn.btnConfirm { background-color: #037dce; }
-
-.form .btns .btn.btnCancel, .tableBox .btns .btn.btnCancel { background-color: #727272; }
+.btns .btn.btnCancel { background-color: #727272; }
 
 .searchBox { padding: 50px 100px; border: 1px solid #d9d9d9; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; margin-top: 50px; background-color: #d9d9d9; }
 

@@ -36,8 +36,8 @@
 	
 					<!-- ORDER BY REGROUP DESC, RELEVEL ASC -->
 	<update id="updateBoard" parameterType="BoardDto">
-		UPDATE BOARD SET SUBJECT = #{subject}, CONTENTS = #{contents} 
-		WHERE NO = #{no} AND PASSWORD = #{password}   
+		UPDATE BOARD SET title = #{title}, CONTENTS = #{contents} 
+		WHERE NO = #{no}  
 	</update>
 	
 	<select id="getSelectOne" parameterType="Integer" resultType="BoardDto">

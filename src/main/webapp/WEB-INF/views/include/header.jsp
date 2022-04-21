@@ -21,15 +21,14 @@
    href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
    rel="stylesheet" />
 <link href="../summernote/summernote.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="../css/layout02.css" />
-
+<link rel="stylesheet" href="../css/layout.css" />
 <link rel="stylesheet" href="../css/inner.css" />
-<link rel="stylesheet" href="../css/contents.css" />
+<link rel="stylesheet" href="../css/board.css" />
 <link rel="stylesheet" href="../css/calendar.css" />
+<link rel="stylesheet" href="../css/form.css" />
 <link rel="stylesheet" href="../css/student.css" />
 <script src="../js/jquery-3.6.0.min.js"></script>
 <script src="../js/main.js" defer></script>
-<script src="../js/calendar.js" defer></script>
 </head>
 <body>
    <header id="header">
@@ -95,4 +94,3 @@
          </c:choose>
       </div>
    </header>
-</body>

@@ -1,0 +1,125 @@
+@import "vars";
+@import "mixins";
+
+.board {
+  background-color: #fff;
+  margin-top: 15px;
+  width: 100%;
+  outline: none;
+  border: none;
+  tr {
+    border-bottom: 1px solid $border-color;
+    &:hover {
+      background-color: $light-gray-color;
+    }
+    th,
+    td {
+      padding: 15px 0;
+      text-align: center;
+    }
+    .subject {
+      text-align: left;
+    }
+  }
+}
+
+.sideBar {
+  width: 300px;
+  background-color: #fff;
+  padding: 15px;
+  ul {
+    li {
+      height: 40px;
+      line-height: 40px;
+      padding-left: 10px;
+      min-width: 150px;
+      &.on {
+        background-color: rgb(220, 220, 220);
+      }
+      &.mainItem {
+        padding-bottom: 5px;
+      }
+      &.subItem {
+        margin-left: 15px;
+        padding-bottom: 5px;
+        a {
+          font-size: 18px;
+        }
+      }
+      a {
+        font-size: 20px;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+.searchBox {
+  padding: 50px 100px;
+  border: 1px solid #d9d9d9;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  background-color: #d9d9d9;
+  select,
+  input,
+  button {
+    height: 50px;
+  }
+  select {
+    width: 120px;
+    margin-right: 10px;
+  }
+  button {
+    background-color: #111;
+    color: #fff;
+    border-radius: 5px;
+    width: 120px;
+    margin-left: 10px;
+  }
+  input {
+    width: calc(100% - 260px);
+  }
+}
+
+.pagination {
+  display: block;
+  width: 100%;
+  ul {
+    display: flex;
+    justify-content: center;
+    li {
+      &.active a {
+        background-color: rgb(2, 116, 209);
+      }
+      margin: 0 2px;
+      a {
+        display: flex;
+        width: 30px;
+        height: 30px;
+        justify-content: center;
+        align-items: center;
+        background-color: #111;
+        color: #fff;
+        border-radius: 2px;
+      }
+    }
+  }
+}
+
+.prevAndNext {
+  .item {
+    display: flex;
+    padding: 10px;
+    .direc {
+      display: flex;
+      max-width: 100px;
+      justify-content: space-between;
+      align-items: center;
+      margin-right: 15px;
+      span {
+        margin-right: 15px;
+      }
+    }
+  }
+}
