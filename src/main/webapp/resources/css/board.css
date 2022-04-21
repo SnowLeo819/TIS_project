@@ -47,3 +47,13 @@
 .prevAndNext .item .direc { display: -webkit-box; display: -ms-flexbox; display: flex; max-width: 100px; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; margin-right: 15px; }
 
 .prevAndNext .item .direc span { margin-right: 15px; }
+
+.prevAndNext { margin: 50px 0; border-top: 1px solid #d9d9d9; }
+
+.prevAndNext .inner { padding: 0; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+
+.prevAndNext .inner .material-icons { margin-right: 20px; }
+
+.prevAndNext a { margin-left: 50px; }
+
+.prevAndNext .item { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; padding: 20px; border-bottom: 1px solid #d9d9d9; }

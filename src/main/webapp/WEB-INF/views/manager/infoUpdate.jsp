@@ -3,12 +3,12 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ include file="../include/header.jsp"%>
 <main id="main">
-	<div class="inner">
-		<div class="title">
-			<h2><a href="../manager/ManageList.do">원생 관리</a><span> > 정보 수정</span></h2>
-			<span class="caution">※ 분류, 아이디, 비밀번호 변경은 삭제 후 재가입 해야합니다.</span>
-		</div>
-		<div class="contents">
+	<div class="contents">
+		<div id="inner">
+			<div class="title">
+				<h2><a href="../manager/ManageList.do">원생 관리</a><span> > 정보 수정</span></h2>
+				<span class="caution">※ 분류, 아이디, 비밀번호 변경은 삭제 후 재가입 해야합니다.</span>
+			</div>
 			<form action="../manager/InfoUpdateProcess.do?code=${memberDto.code }" method="POST" id="info">
 				<div class="info">
 					<table>

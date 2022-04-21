@@ -31,9 +31,12 @@ img {
 }
 
 #header {
-  padding: 25px 0;
+  padding: 30px 0;
   background-color: #111;
   .inner {
+    h1 {
+      margin: 0;
+    }
     padding: 0 100px;
     display: flex;
     justify-content: space-between;
@@ -44,32 +47,34 @@ img {
     }
     #gnb > ul {
       display: flex;
+      margin: 0;
       a {
-        padding: 20px 40px;
+        padding: 20px 30px;
       }
     }
   }
 }
 
 main {
-  .title {
-    margin: 15px;
-  }
-  .inner {
+  min-height: calc(100% - 180px);
+  .contents {
     display: flex;
     margin: 15px;
     width: calc(100% - 30px);
     justify-content: space-between;
-    .contents {
+    #inner {
       margin: 15px;
       width: 100%;
       margin-bottom: 50px;
       position: relative;
-      .subTitle {
-        text-align: center;
-        font-size: 38px;
-        font-weight: 300;
-        margin-bottom: 100px;
+      .title {
+        margin: 15px;
+        .subTitle {
+          text-align: center;
+          font-size: 36px;
+          font-weight: 700;
+          margin-bottom: 100px;
+        }
       }
     }
   }
@@ -83,4 +88,27 @@ main {
   justify-content: center;
   align-items: center;
   font-size: 14px;
+}
+
+.btns {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  .btn {
+    display: flex;
+    width: 110px;
+    height: 40px;
+    border-radius: 5px;
+    margin: 0 5px;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    &.btnConfirm {
+      background-color: rgb(3, 125, 206);
+    }
+    &.btnCancel {
+      background-color: rgb(114, 114, 114);
+    }
+  }
 }

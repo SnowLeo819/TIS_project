@@ -123,3 +123,25 @@
     }
   }
 }
+
+.prevAndNext {
+  margin: 50px 0;
+  border-top: 1px solid #d9d9d9;
+  .inner {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    .material-icons {
+      margin-right: 20px;
+    }
+  }
+  a {
+    margin-left: 50px;
+  }
+  .item {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #d9d9d9;
+  }
+}

@@ -3,17 +3,17 @@
 
 <%@ include file="../include/header.jsp" %>
 <main>
-	<div class="inner">
-		<div id="contents">
+	<div class="contents">
+		<div id="inner">
 			<div class="title">
-				<h2 class="subTitle">BOARD LIST(Category : 
+				<h2 class="subTitle"> 
 					<c:choose>
-						<c:when test="${param.cate_select==''||param.cate_select==null}">All</c:when>
-						<c:when test="${param.cate_select=='notice'}">notice</c:when>
-						<c:when test="${param.cate_select=='question'}">question</c:when>
-						<c:when test="${param.cate_select=='etc'}">etc</c:when>
+						<c:when test="${param.cate_select==''||param.cate_select==null}">게시판</c:when>
+						<c:when test="${param.cate_select=='notice'}">공지사항</c:when>
+						<c:when test="${param.cate_select=='question'}">질의문답</c:when>
+						<c:when test="${param.cate_select=='etc'}">기타문의</c:when>
 					</c:choose>
-				)</h2>
+				</h2>
 			</div>
 			<div class="tableBox">
 				<table class="board">
@@ -107,8 +107,8 @@
 					</a>
 				</li>
 			</ul>
-		</div>	
-	</div>
+		</div>
+	</div>	
 </main>
 <script>
 

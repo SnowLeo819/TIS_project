@@ -4,11 +4,11 @@
 <%@ include file="../include/header.jsp"%>
 
 <main>
-	<div class="inner">
+	<div class="contents">
 		<div class="title">
 			<h2 class="subTitle">STUDENTS INFO</h2>
 		</div>
-		<div id="contents">
+		<div id="inner">
 			<div class="tableBox">
 				<table class="left">
 					<colgroup>

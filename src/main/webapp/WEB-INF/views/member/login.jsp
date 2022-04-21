@@ -2,11 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"  %>
 <main>
-	<div class="inner">
-		<div class="title">
-			<h2 class="subTitle">LOGIN</h2>
-		</div>
-		<div id="contents">
+	<div class="contents">
+		<div id="inner">
+			<div class="title">
+				<h2 class="subTitle">LOGIN</h2>
+			</div>
 			<form method="POST" action="../member/LoginProcess.do" id="join" class="form">
 				<table class="left">
 					<colgroup>

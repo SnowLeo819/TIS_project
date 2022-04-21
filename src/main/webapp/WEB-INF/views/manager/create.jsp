@@ -2,13 +2,13 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
 <main id="main">
-	<div class="inner">  <%-- 위치수정했음.. css 수정 후 주석 삭제하기 --%>
-		<div class="title">
-			<h2 class="subTitle">
-				<a href="../ManageList.do">원생 관리</a><span class="depth"> > 신규 등록</span>
-			</h2>
-		</div>
-		<div class="contents">
+	<div class="contents">  <%-- 위치수정했음.. css 수정 후 주석 삭제하기 --%>
+		<div id="inner">
+			<div class="title">
+				<h2 class="subTitle">
+					<a href="../ManageList.do">원생 관리</a><span class="depth"> > 신규 등록</span>
+				</h2>
+			</div>
 			<form action="../manager/CreateProcess.do" method="POST" class="form" id="info">
 				<div class="info">
 					<table>

@@ -7,13 +7,13 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ include file="../include/header.jsp"%>
 <main id="main">
-	<div class="inner">
-		<div class="title">
-			<h2 class="subTitle">
-				<a href="../manager/ManageList.do">원생 관리</a><span class="depth"> > 정보 조회</span>
-			</h2>
-		</div>
-		<div class="contents">
+	<div class="contents">
+		<div id="inner">
+			<div class="title">
+				<h2 class="subTitle">
+					<a href="../manager/ManageList.do">원생 관리</a><span class="depth"> > 정보 조회</span>
+				</h2>
+			</div>
 			<div class="info">
 				<table>
 					<colgroup>

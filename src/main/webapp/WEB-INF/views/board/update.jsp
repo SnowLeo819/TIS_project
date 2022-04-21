@@ -2,8 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
 <main>
-	<div class="inner">
-		<div id="contents">
+	<div class="contents">
+		<div id="inner">
 			<div class="title">
 				<h2 class="subTitle">UPDATE</h2>
 			</div>

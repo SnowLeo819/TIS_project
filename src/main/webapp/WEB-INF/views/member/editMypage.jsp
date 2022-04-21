@@ -4,11 +4,11 @@
 <%@ include file="../include/header.jsp"%>
 
 <main>
-  <div class="inner">
-    <div class="title">
-      <h2 class="subTitle">회원 정보 수정</h2>
-    </div>
-    <div id="contents">
+  <div class="contents">
+    <div id="inner">
+      <div class="title">
+        <h2 class="subTitle">회원 정보 수정</h2>
+      </div>
       <!-- 데이터 받아서 처리하기....forward방식으로 데이터 보여주기....  -->
       <form method="POST" action="../member/EditProcess.do" id="editmypage" class="form" enctype="multipart/form-data">
         <table class="left">

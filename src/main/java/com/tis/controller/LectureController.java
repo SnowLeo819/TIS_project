@@ -51,7 +51,6 @@ public class LectureController {
 	public String main(HttpSession session, Model model) throws ParseException {
 		String loggedCode = (String)session.getAttribute("loggedCode");
 		
-		
 		// 출결 기준일수 30일로 가정할 때..(지정 필요) 
 		double setDate = 30;
 		double attenCount = attendDao.getAllAttendCount(loggedCode); // 출결일수
@@ -125,7 +124,6 @@ public class LectureController {
 //		System.out.println("가져온 mass== "+mass);
 //		System.out.println("가져온 list== "+lectureList);
 				
-		// 페이지 연결
 		return lectureList;
 	}
 }

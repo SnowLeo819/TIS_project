@@ -3,11 +3,11 @@
 <%@ include file="../include/header.jsp"%>
 
 <main>
-	<div class="inner">
-		<div class="title">
-			<h2 class="subTitle">JOIN</h2>
-		</div>
-		<div id="contents">
+	<div class="contents">
+		<div id="inner">
+			<div class="title">
+				<h2 class="subTitle">JOIN</h2>
+			</div>
 			<form method="POST" action="../member/JoinProcess.do" id="join" class="form" enctype="multipart/form-data">
 				<table class="left">
 					<colgroup>

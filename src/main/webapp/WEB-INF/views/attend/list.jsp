@@ -2,11 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
 <main>
-	<div class="inner">
+	<div class="contents">
 		<div class="title">
 			<h2 class="subTitle">출결관리</h2>
 		</div>
-		<div id="contents">
+		<div id="inner">
 			<input type="date" id="now_date" />
 			<div class="tableBox">
 				<table>

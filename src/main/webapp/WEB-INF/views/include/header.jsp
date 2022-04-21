@@ -39,12 +39,10 @@
                   <a href="../member/Login.do">나는 문어</a>
                </h1>
                <nav id="gnb">
-                  <h2 class="hidden">global navigation bar</h2>
+                  <%-- <h2 class="hidden">global navigation bar</h2> --%>
                   <ul>
                      <li><a href="../member/Login.do">로그인</a></li>
-                     <li><a href="../member/Join.do">회원가입</a></li>
-                     <li><a href="../lecture/List.do">일정테스트</a></li>
-                     <li><a href="../board/List.do?clickPage=1">게시판</a></li>
+                     <li><a href="../board/List.do">게시판</a></li>
                   </ul>
                </nav>
             </c:when>
@@ -56,25 +54,36 @@
                      </h1>
                      <nav id="gnb">
                         <ul>
-                           <li><a href="../manager/List.do">${loggedName} 관리자님</a></li>
-                           <li><a href="../member/Logout.do">로그아웃</a></li>
-                           <li><a href="../lecture/List.do">일정테스트</a></li>
+                           <li><a href="../attend/Attend.do">출결관리</a></li>
                            <li><a href="../board/List.do">게시판</a></li>
+                           <li><a href="../">강의일정(x)</a></li>
+                           <li><a href="../manager/ManageList.do">원생관리</a></li>
                         </ul>
                      </nav>
+                     <div class="topMenu">
+                        <ul>
+                           <li><a href="../member/Mypage.do">${loggedName} 관리자님</a></li>
+                           <li><a href="../member/Logout.do">로그아웃</a></li>
+                        </ul>
+                     <div>
                   </c:when>
                   <c:when test="${loggedPosition eq 'T'}">
                      <h1>
-                        <a href="../manager/ManageList.do">나는 문어</a>
+                        <a href="../attend/Attend.do">나는 문어</a>
                      </h1>
                      <nav id="gnb">
                         <ul>
-                           <li><a href="../manager/List.do">${loggedName} 강사님</a></li>
-                           <li><a href="../member/Logout.do">로그아웃</a></li>
-                           <li><a href="../attend/Attend.do">출석관리</a></li>
+                           <li><a href="../attend/Attend.do">출결관리</a></li>
                            <li><a href="../board/List.do">게시판</a></li>
+                           <li><a href="../">강의일정(x)</a></li>
                         </ul>
                      </nav>
+                     <div class="topMenu">
+                        <ul>
+                           <li><a href="../member/Mypage.do">${loggedName} 강사님</a></li>
+                           <li><a href="../member/Logout.do">로그아웃</a></li>
+                        </ul>
+                     <div>
                   </c:when>
                   
                   <c:otherwise>
@@ -83,11 +92,16 @@
                      </h1>
                      <nav id="gnb">
                         <ul>
-                           <li><a href="../member/Mypage.do">${loggedName}</a></li>
-                           <li><a href="../member/Logout.do">로그아웃</a></li>
+                           <li><a href="../lecture/Main.do">나의 출결</a></li>
                            <li><a href="../board/List.do">게시판</a></li>
                         </ul>
                      </nav>
+                     <div class="topMenu">
+                        <ul>
+                           <li><a href="../member/Mypage.do">${loggedName} 님</a></li>
+                           <li><a href="../member/Logout.do">로그아웃</a></li>
+                        </ul>
+                     <div>
                   </c:otherwise>
                </c:choose>
             </c:otherwise>

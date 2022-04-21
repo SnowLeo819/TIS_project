@@ -1,6 +1,9 @@
+@import "vars";
+@import "mixins";
+
 .form,
 .tableBox {
-  max-width: 1200px;
+  max-width: 1500px;
   margin: auto;
   .inputBox {
     input[type="text"],
@@ -33,12 +36,14 @@
     }
     td,
     th {
+      text-align: center;
       padding: 10px;
       border: none;
       border-bottom: 1px solid #999;
       text-align: center;
       vertical-align: middle;
     }
+    thead tr td,
     th {
       background-color: #d9d9d9;
       font-weight: 700;
@@ -66,7 +71,7 @@
         width: 200px;
       }
       &.readonly {
-        background-color: #111 !important;
+        background-color: rgb(125, 125, 125) !important;
         color: #fff !important;
       }
     }
@@ -91,105 +96,5 @@
       margin-left: 10px;
       font-size: 12px;
     }
-  }
-}
-
-.btns {
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
-  .btn {
-    display: flex;
-    width: 120px;
-    height: 60px;
-    border-radius: 5px;
-    margin: 0 5px;
-    color: #fff;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    &.btnConfirm {
-      background-color: rgb(3, 125, 206);
-    }
-    &.btnCancel {
-      background-color: rgb(114, 114, 114);
-    }
-  }
-}
-
-.searchBox {
-  padding: 50px 100px;
-  border: 1px solid #d9d9d9;
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
-  background-color: #d9d9d9;
-  select,
-  input,
-  button {
-    height: 50px;
-  }
-  select {
-    width: 120px;
-    margin-right: 10px;
-  }
-  button {
-    background-color: #111;
-    color: #fff;
-    border-radius: 5px;
-    width: 120px;
-    margin-left: 10px;
-  }
-  input {
-    width: calc(100% - 260px);
-  }
-}
-
-.pagination {
-  display: block;
-  width: 100%;
-  margin-top: 50px;
-  ul {
-    display: flex;
-    justify-content: center;
-    li {
-      margin: 0 2px;
-      &.active a {
-        background-color: rgb(2, 116, 209);
-        pointer-events: none;
-      }
-      a {
-        display: flex;
-        width: 30px;
-        height: 30px;
-        justify-content: center;
-        align-items: center;
-        background-color: #111;
-        color: #fff;
-        border-radius: 2px;
-      }
-    }
-  }
-}
-
-.prevAndNext {
-  margin: 50px 0;
-  border-top: 1px solid #d9d9d9;
-  .inner {
-    padding: 0;
-    display: flex;
-    align-items: center;
-    .material-icons {
-      margin-right: 20px;
-    }
-  }
-  a {
-    margin-left: 50px;
-  }
-  .item {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    border-bottom: 1px solid #d9d9d9;
   }
 }

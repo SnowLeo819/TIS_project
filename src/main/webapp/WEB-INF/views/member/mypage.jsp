@@ -2,11 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
 <main>
-	<div class="inner">
-		<div class="title">
-			<h2 class="subTitle">마이 페이지</h2>
-		</div>
-		<div id="contents">
+	<div class="contents">
+		<div id="inner">
+			<div class="title">
+				<h2 class="subTitle">마이 페이지</h2>
+			</div>
 			<form method="POST" action="../member/EditMypage.do" id="Mypage"
 				class="form" enctype="multipart/form-data">
 				<table class="left">
