@@ -29,6 +29,10 @@ button {
 img {
   vertical-align: top;
 }
+#header,
+#footer {
+  height: 90px;
+}
 
 #header {
   padding: 30px 0;
@@ -48,8 +52,21 @@ img {
     #gnb > ul {
       display: flex;
       margin: 0;
+      margin-top: 10px;
+      margin-right: 30px;
       a {
         padding: 20px 30px;
+      }
+    }
+    .topMenu {
+      position: absolute;
+      right: 0;
+      top: 0;
+      ul {
+        display: flex;
+        li {
+          padding: 0 15px;
+        }
       }
     }
   }
@@ -59,8 +76,8 @@ main {
   min-height: calc(100% - 180px);
   .contents {
     display: flex;
-    margin: 15px;
-    width: calc(100% - 30px);
+    margin: auto;
+    max-width: 1300px;
     justify-content: space-between;
     #inner {
       margin: 15px;
@@ -73,7 +90,7 @@ main {
           text-align: center;
           font-size: 36px;
           font-weight: 700;
-          margin-bottom: 100px;
+          margin-bottom: 50px;
         }
       }
     }

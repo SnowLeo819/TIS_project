@@ -10,6 +10,8 @@ button { background: none; border: none; outline: none; }
 
 img { vertical-align: top; }
 
+#header, #footer { height: 90px; }
+
 #header { padding: 30px 0; background-color: #111; }
 
 #header .inner { padding: 0 100px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; color: #fff; }
@@ -18,19 +20,25 @@ img { vertical-align: top; }
 
 #header .inner h1 { font-size: 24px; }
 
-#header .inner #gnb > ul { display: -webkit-box; display: -ms-flexbox; display: flex; margin: 0; }
+#header .inner #gnb > ul { display: -webkit-box; display: -ms-flexbox; display: flex; margin: 0; margin-top: 10px; margin-right: 30px; }
 
 #header .inner #gnb > ul a { padding: 20px 30px; }
 
+#header .inner .topMenu { position: absolute; right: 0; top: 0; }
+
+#header .inner .topMenu ul { display: -webkit-box; display: -ms-flexbox; display: flex; }
+
+#header .inner .topMenu ul li { padding: 0 15px; }
+
 main { min-height: calc(100% - 180px); }
 
-main .contents { display: -webkit-box; display: -ms-flexbox; display: flex; margin: 15px; width: calc(100% - 30px); -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
+main .contents { display: -webkit-box; display: -ms-flexbox; display: flex; margin: auto; max-width: 1300px; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
 
 main .contents #inner { margin: 15px; width: 100%; margin-bottom: 50px; position: relative; }
 
 main .contents #inner .title { margin: 15px; }
 
-main .contents #inner .title .subTitle { text-align: center; font-size: 36px; font-weight: 700; margin-bottom: 100px; }
+main .contents #inner .title .subTitle { text-align: center; font-size: 36px; font-weight: 700; margin-bottom: 50px; }
 
 #footer { background-color: #111; padding: 30px 0; color: #fff; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; font-size: 14px; }
 

@@ -3,12 +3,12 @@
 <%@ include file="../include/header.jsp"%>
 <main id="main">
 	<div class="contents">
-		<div class="title">
-			<h2 class="subTitle">
-				<a href="../manager/ManageList.do">원생 관리</a>
-			</h2>
-		</div>
 		<div id="inner">
+			<div class="title">
+				<h2 class="subTitle">
+					<a href="../manager/ManageList.do">원생 관리</a>
+				</h2>
+			</div>
 			<div class="searchBox">
 				<form action="../manager/ManageList.do" method="GET">
 					<label class="positionBox"> <span>분류</span> <select

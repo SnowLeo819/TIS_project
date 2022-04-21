@@ -3,12 +3,12 @@
 <%@ include file="../include/header.jsp"%>
 <main>
 	<div class="contents">
-		<div class="title">
-			<h2 class="subTitle">출결관리</h2>
-		</div>
 		<div id="inner">
-			<input type="date" id="now_date" />
+			<div class="title">
+				<h2 class="subTitle">출결관리</h2>
+			</div>
 			<div class="tableBox">
+				<input type="date" id="now_date" />
 				<table>
 					<colgroup>
 						<col style="width: 50px" />
@@ -52,20 +52,20 @@
 				</table>
 			</div>
 		</div>
-	</div>
-	<div class="sideBar">
-		<ul class="list">
-			<li class="mainItem on">
-				<a href="../attend/attendAllList.do">
-					<p>출결 관리</p>
-				</a>
-			</li>
-			<li class="mainItem on">
-				<a href="../attend/attendAllList.do">
-					<p>수업 일정</p>
-				</a>
-			</li>
-		</ul>
+		<div class="sideBar">
+			<ul class="list">
+				<li class="mainItem on">
+					<a href="../attend/attendAllList.do">
+						<p>출결 관리</p>
+					</a>
+				</li>
+				<li class="mainItem">
+					<a href="../attend/attendAllList.do">
+						<p>수업 일정</p>
+					</a>
+				</li>
+			</ul>
+		</div>
 	</div>
 </main>
 
