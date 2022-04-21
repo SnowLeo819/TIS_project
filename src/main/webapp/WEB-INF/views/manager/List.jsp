@@ -1,16 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
-
-
 <main id="main">
-	<div class="contents">
+	<div class="inner">
 		<div class="title">
-			<h1>
+			<h2 class="subTitle">
 				<a href="../manager/ManageList.do">원생 관리</a>
-			</h1>
+			</h2>
 		</div>
-		<div class="inner">
+		<div class="contents">
 			<div class="searchBox">
 				<form action="../manager/ManageList.do" method="GET">
 					<label class="positionBox"> <span>분류</span> <select
@@ -23,6 +21,7 @@
 								<c:if test='${param.search_position eq "T"}'>selected</c:if>>강사</option>
 							<option value="F"
 								<c:if test='${param.search_position eq "F"}'>selected</c:if>>직원</option>
+							<!-- <option value="F" ${param.search_position eq 'F'?'selected':''}>직원</option>   이렇게 적으면 어떨지?? --> 
 					</select>
 					</label> <label class="subjectBox"> <span>과목</span> <select
 						name="search_subject" id="search_subject">

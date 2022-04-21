@@ -1,5 +1,8 @@
 package com.tis.controller;
 
+import java.util.Date;
+import java.util.Random;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -84,25 +87,55 @@ public class MemberController {
 	}
 
 	// 회원가입 등록(DB)
-	@PostMapping("/JoinProcess.do")
-	public void joinProcess(HttpServletRequest request, MemberDto memberDto, HttpServletResponse response,
-			HttpSession session) throws Exception {
+	   @PostMapping("/JoinProcess.do")
+	   public void joinProcess(HttpServletRequest request, MemberDto memberDto, HttpServletResponse response,
+	         HttpSession session) throws Exception {
+	      //전화번호 설정
+	      String first = request.getParameter("tellFirst");
+	      String middle = request.getParameter("tellMiddle");
+	      String last = request.getParameter("tellLast");
+	      memberDto.setTell(first + '-' + middle + '-' + last);
+	      //분류 설정(학생 회원가입은 S자동 설정
+	      memberDto.setPosition("S");
+	      //분류코드 랜덤 생성
+	      MemberDto tempMemDto = null;
+	      String code = null;
+	      do {
+	         code = "S" + rand4num();
+	         tempMemDto = memberDao.getSelectOne(code);
+//	         if (tempMemDto != null)
+//	            System.out.println(code + "//" + tempMemDto.getCode());
+	      } while (tempMemDto != null);
+	      memberDto.setCode(code);
+	      //가입날짜 입력(매니저 변경 가능)      
+	      Date now = new Date();
+	      memberDto.setRegDate(now);
 
-		String first = request.getParameter("phoneFirst");
-		String middle = request.getParameter("phoneMiddle");
-		String last = request.getParameter("phoneLast");
+	      
+	      int result = memberDao.insertMember(memberDto);
+	      if (result != 0) {
+	         ScriptWriter.alertAndNext(response, "회원가입 완료", "../member/Login.do");
+	      } else {
+	         ScriptWriter.alertAndBack(response, "회원가입에 문제가 생겼습니다. 관리자에게 문의해주시기 바랍니다.");
+	      }
 
-		memberDto.setTell(first + '-' + middle + '-' + last);
+	   }
 
-		int result = memberDao.insertMember(memberDto);
+	   public String rand4num() {
+	      Random random = new Random();
+	      int createNum = 0;
+	      String ranNum = "";
+	      int letter = 4; // 몇 개 생성할건지
+	      String result = "";
 
-		if (result != 0) {
-			ScriptWriter.alertAndNext(response, "회원가입 완료", "../member/Login.do");
-		} else {
-			ScriptWriter.alertAndBack(response, "회원가입에 문제가 생겼습니다. 관리자에게 문의해주시기 바랍니다.");
-		}
+	      for (int i = 0; i < letter; i++) {
+	         createNum = random.nextInt(9);
+	         ranNum = Integer.toString(createNum); // 형변환
+	         result += ranNum;
+	      }
 
-	}
+	      return result;
+	   }
 
 	/* user page */
 	// 개인정보(마이페이지)

@@ -3,7 +3,9 @@
 <%@ include file="../include/header.jsp"%>
 <main>
 	<div class="inner">
-		<h2 class="subTitle">마이 페이지</h2>
+		<div class="title">
+			<h2 class="subTitle">마이 페이지</h2>
+		</div>
 		<div id="contents">
 			<form method="POST" action="../member/EditMypage.do" id="Mypage"
 				class="form" enctype="multipart/form-data">

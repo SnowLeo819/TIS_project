@@ -2,15 +2,15 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
 <main>
-	<div class="title">
-		<h2 class="subTitle">UPDATE</h2>
-	</div>
 	<div class="inner">
 		<div id="contents">
+			<div class="title">
+				<h2 class="subTitle">UPDATE</h2>
+			</div>
 			<!-- 데이터 받아서 처리하기....forward방식으로 데이터 보여주기....  -->
 			<form method="POST" action="../board/UpdateProcess.do" id="join" class="form">
 				<input  type="hidden" name="no" value="${param.no }">
-				<table>
+				<table class="left">
 					<colgroup>
 						<col style="width: 20%">
 						<col style="width: 80%">
@@ -48,6 +48,30 @@
 					<button type="reset" id="goBack" class="btn btnCancel" onclick="window.history.back()">취소</button>
 				</div>
 			</form>
+		</div>
+		<div class="sideBar">
+			<ul class="list">
+				<li class="mainItem ${param.cate_select==''?'on':param.cate_select==null?'on':''}">
+					<a href="../board/List.do?cate_select=">
+						<p>전체 게시판</p>
+					</a>
+				</li>
+				<li class="subItem ${param.cate_select=='notice'?'on':''}">
+					<a href="../board/List.do?cate_select=notice">
+						<p>공지사항</p>
+					</a>
+				</li>
+				<li class="subItem ${param.cate_select=='question'?'on':''}">
+					<a href="../board/List.do?cate_select=question">
+						<p>질의문답</p>
+					</a>
+				</li>
+				<li class="subItem ${param.cate_select=='etc'?'on':''}">
+					<a href="../board/List.do?cate_select=etc">
+						<p>기타문의</p>
+					</a>
+				</li>
+			</ul>
 		</div>
 	</div>
 </main>

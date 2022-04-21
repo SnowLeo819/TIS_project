@@ -3,18 +3,18 @@
 
 <%@ include file="../include/header.jsp" %>
 <main>
-	<div class="title">
-		<h2 class="subTitle">BOARD LIST(Category : 
-			<c:choose>
-				<c:when test="${param.cate_select==''||param.cate_select==null}">All</c:when>
-				<c:when test="${param.cate_select=='notice'}">notice</c:when>
-				<c:when test="${param.cate_select=='question'}">question</c:when>
-				<c:when test="${param.cate_select=='etc'}">etc</c:when>
-			</c:choose>
-		)</h2>
-	</div>
 	<div class="inner">
 		<div id="contents">
+			<div class="title">
+				<h2 class="subTitle">BOARD LIST(Category : 
+					<c:choose>
+						<c:when test="${param.cate_select==''||param.cate_select==null}">All</c:when>
+						<c:when test="${param.cate_select=='notice'}">notice</c:when>
+						<c:when test="${param.cate_select=='question'}">question</c:when>
+						<c:when test="${param.cate_select=='etc'}">etc</c:when>
+					</c:choose>
+				)</h2>
+			</div>
 			<div class="tableBox">
 				<table class="board">
 					<colgroup>
@@ -78,46 +78,45 @@
 				</form>
 				<div class="btns">
 					<!-- 로그인 안되어 있으면 버튼 안뜨게... c:if -->
-					<%-- <c:if test="${not empty loggedMember }"> --%>
-						<a href="../board/Write.do" class="btn btnConfirm">글쓰기</a>
-					<%-- </c:if> --%>
+					<c:if test="${not empty loggedCode }">
+						<a href="../board/Write.do" class="btn btnConfirm" id="btnWrite">글쓰기</a>
+					</c:if>
 				</div>
 			</div>
 		</div>
 		<div class="sideBar">
 			<ul class="list">
-	          <li class="mainItem  ${param.cate_select==''?'on':param.cate_select==null?'on':''}">
-	            <a href="../board/List.do?cate_select=">
-	              <p>전체 게시판</p>
-	            </a>
-	          </li>
-	          <li class="subItem  ${param.cate_select=='notice'?'on':''}">
-	            <a href="../board/List.do?cate_select=notice">
-	              <p>공지사항</p>
-	            </a>
-	          </li>
-	          <li class="subItem  ${param.cate_select=='question'?'on':''}">
-	            <a href="../board/List.do?cate_select=question">
-	              <p>질의문답</p>
-	            </a>
-	          </li>
-	          <li class="subItem  ${param.cate_select=='etc'?'on':''}">
-	            <a href="../board/List.do?cate_select=etc">
-	              <p>기타문의</p>
-	            </a>
-	          </li>
-	        </ul>
+				<li class="mainItem ${param.cate_select==''?'on':param.cate_select==null?'on':''}">
+					<a href="../board/List.do?cate_select=">
+						<p>전체 게시판</p>
+					</a>
+				</li>
+				<li class="subItem ${param.cate_select=='notice'?'on':''}">
+					<a href="../board/List.do?cate_select=notice">
+						<p>공지사항</p>
+					</a>
+				</li>
+				<li class="subItem ${param.cate_select=='question'?'on':''}">
+					<a href="../board/List.do?cate_select=question">
+						<p>질의문답</p>
+					</a>
+				</li>
+				<li class="subItem ${param.cate_select=='etc'?'on':''}">
+					<a href="../board/List.do?cate_select=etc">
+						<p>기타문의</p>
+					</a>
+				</li>
+			</ul>
 		</div>	
 	</div>
 </main>
 <script>
 
 	console.log(${not empty loggedMember });
-	$(".btnConfirm").on("click",function(){
+	$("#btnWrite").on("click",function(){
 		if(${empty loggedMember }) {
 			alert("로그인 해야 글을 쓸 수 있습니다."); 
 			location.href="../member/Login.do";
-			/* location.href="../board/Write.do"; */
 			return false;
 		}
 	});

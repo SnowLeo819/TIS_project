@@ -18,8 +18,7 @@ allCheckBox.click(function () {
 //아이디 중복 확인
 let idCheck = false;
 const korean = /[ㄱ-ㅎㅏ-ㅣ가-힣]/g;
-const email =
-  /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/; //이메일 정규식
+const email = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/; //이메일 정규식
 
 $("#btnIdCheck").on("click", function (e) {
   //e.preventDefault();
@@ -146,11 +145,11 @@ $("#now_date").on("change", function () {
   });
 });
 
-function newFunction() {}
+// function newFunction() {}
 
-let test = confirm("??");
-if (test == true) {
-  location.href = "";
-} else if (test == false) {
-  histohistory.back();
-}
+// let test = confirm("??");
+// if (test == true) {
+//   location.href = "";
+// } else if (test == false) {
+//   histohistory.back();
+// }

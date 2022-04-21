@@ -7,19 +7,18 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ include file="../include/header.jsp"%>
 <main id="main">
-	<div class="contents">
+	<div class="inner">
 		<div class="title">
-			<h1>
-				<a href="../manager/ManageList.do">원생 관리</a><span class="depth"> >
-					정보 조회</span>
-			</h1>
+			<h2 class="subTitle">
+				<a href="../manager/ManageList.do">원생 관리</a><span class="depth"> > 정보 조회</span>
+			</h2>
 		</div>
-		<div class="inner">
+		<div class="contents">
 			<div class="info">
 				<table>
 					<colgroup>
-							<col style="width: 20%" />
-							<col style="width: 80%" />
+						<col style="width: 20%" />
+						<col style="width: 80%" />
 					</colgroup>
 					<tr>
 						<th>이름</th>
@@ -75,15 +74,14 @@
 					</tr>
 					<tr>
 						<th>등록일</th>
-						<td><fmt:formatDate value="${memberDto.regDate }"
-								pattern="yyyy년 M월 d일" /></td>
+						<td><fmt:formatDate value="${memberDto.regDate }" pattern="yyyy년 M월 d일" /></td>
 					</tr>
 				</table>
 			</div>
 		</div>
 		<div class="btns">
-			<a href="javascript:history.back(-1)" class="btn">뒤로 가기</a> 
-			<a href="../manager/DeleteProcess.do?code=${memberDto.code }" class="btn delete">삭 제</a> 
+			<a href="javascript:history.back(-1)" class="btn">뒤로 가기</a>
+			<a href="../manager/DeleteProcess.do?code=${memberDto.code }" class="btn delete">삭 제</a>
 			<a href="../manager/InfoUpdate.do?code=${memberDto.code }" class="btn update">정보 수정</a>
 		</div>
 	</div>
