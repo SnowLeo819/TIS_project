@@ -46,6 +46,8 @@ public class MemberController {
 			logmemberDto.setPosition(temp.substring(0, 1));
 			String position = logmemberDto.getPosition();
 
+			//세션 유지시간 지정(단위:초)
+			session.setMaxInactiveInterval(60*60*24);
 			session.setAttribute("loggedMember", logmemberDto);
 			session.setAttribute("loggedId", logmemberDto.getId());
 			session.setAttribute("loggedName", logmemberDto.getName());

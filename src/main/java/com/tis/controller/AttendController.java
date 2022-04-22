@@ -88,8 +88,11 @@ public class AttendController {
 	       SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm:ss");
 	      Date outTime = dateFormat.parse("18:00:00"); // 퇴실 기준시간(고정 - 퇴실때 써)
 	      MemberDto loggedMember = (MemberDto)session.getAttribute("loggedMember");
+	      
 	      attendDto.setCode(loggedMember.getCode());
+	      
 	      int judge = attendDao.AttendState(attendDto);
+	      
 	      if(judge >= 1) attendDto.setState("출석");
 	      result = attendDao.AttendOut(attendDto);
 	         if(result > 0) {
