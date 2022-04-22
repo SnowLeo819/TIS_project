@@ -6,7 +6,7 @@
 		INSERT INTO LECTURE VALUES (SEQ_LECTURE.NEXTVAL,
 										#{subject},
 										#{teacher},
-										#{selectDate},
+										TRUNC(#{selectDate},'dd'),
 										#{contents}
 										)
 	</insert>
@@ -21,7 +21,7 @@
 
 
 	<update id="updateLecture" parameterType="LectureDto" >
-		UPDATE ATTEND SET SUBJECT = #{subject},TEACHER = #{teacher}, LEAVETIME = SYSDATE, SELECTDATE = #{selectDate}, CONTENTS = #{contents} WHERE no = #{no}
+		UPDATE ATTEND SET SUBJECT = #{subject},TEACHER = #{teacher}, TRUNC(#{selectDate},'dd'), CONTENTS = #{contents} WHERE no = #{no}
 	</update>
 
 

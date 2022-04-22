@@ -170,29 +170,39 @@ $(".calendar").on("click", ".dates ul .dateBox", function () {
       dateBody.html(output);
     },
   });
+
+  $("body").addClass("overHidden");
+  $("#detailBox").show();
+  gsap.from("#detailBox", {
+    top: "-100%",
+    ease: "ease",
+    duration: 1,
+  });
 });
 
 // 버튼 누르면 모달 창 닫기 흠......
-$("#detail .btnClose").on("click", function () {
-  gsap.to("#detail", {
+const dateBody = $("#detailBox .detail table tbody");
+
+$("#detailBox .topClose").on("click", function () {
+  gsap.to("#detailBox", {
     top: "-100%",
     ease: "back.in",
     duration: 1,
     onComplete: function () {
-      $("#detail textarea").text("");
+      dateBody.html("");
       $("#detail").hide();
       $("body").removeClass("overHidden");
     },
   });
 });
 
-$(".btns .btnClose02").on("click", function () {
-  gsap.to("#detail", {
+$("#detailBox .close").on("click", function () {
+  gsap.to("#detailBox", {
     top: "-100%",
     ease: "back.in",
     duration: 1,
     onComplete: function () {
-      $("#detail textarea").text("");
+      dateBody.html("");
       $("#detail").hide();
       $("body").removeClass("overHidden");
     },

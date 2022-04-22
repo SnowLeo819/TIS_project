@@ -1,3 +1,5 @@
+body .overHidden { overflow: hidden; height: 100%; }
+
 .attend { padding: 10px; background: #c5e1f7; }
 
 .attend #top .itemList { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
@@ -26,13 +28,13 @@
 
 .attend #top .itemList .item:nth-of-type(4) .info .point { color: #aa6412; }
 
-.attend #top .itemList .item { background-color: #fff; width: calc(25% - 4px); height: 150px; }
+.attend #top .itemList .item { background-color: #fff; width: calc(25% - 4px); height: 150px; padding: 0; }
 
 .attend #top .itemList .item .title { height: 50px; width: 100%; margin: 0; background-color: #d04040; line-height: 50px; text-align: center; }
 
 .attend #top .itemList .item .title span { width: 100%; color: #fff; font-size: 18px; font-weight: 700; }
 
-.attend #top .itemList .item .info { height: 100px; text-align: center; line-height: 100px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+.attend #top .itemList .item .info { padding: 0; height: 100px; text-align: center; line-height: 100px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 
 .attend #top .itemList .item .info .txt { font-size: 22px; font-weight: 700; }
 
@@ -42,11 +44,15 @@
 
 #calendar { min-width: 900px; padding-top: 5px; background-color: #fff; }
 
-#detailBox { background-color: rgba(0, 0, 0, 0.6); }
+#calendar .title { padding: 15px; }
 
-#detailBox .btnClose { color: #fff; }
+#calendar .title .subTitle { font-size: 32px; font-weight: 700; margin-bottom: 30px; margin-left: 20px; }
 
-#detailBox .detail { margin: 0 auto; background-color: #fff; border-radius: 10px; width: 600px; overflow: hidden; }
+#detailBox { display: none; position: absolute; background-color: rgba(0, 0, 0, 0.6); height: 100%; left: 0; right: 0; top: 0; bottom: 0; }
+
+#detailBox .topClose { color: #fff; position: absolute; top: 10px; right: 10px; }
+
+#detailBox .detail { position: absolute; background-color: #fff; border-radius: 10px; width: 600px; overflow: hidden; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); padding: 20px 5px; }
 
 #detailBox .detail .btns { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; margin-top: 50px; }
 

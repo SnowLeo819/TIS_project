@@ -104,10 +104,9 @@ public class LectureController {
 		
 		String loggedCode = (String)session.getAttribute("loggedCode");
 		MemberDto memberDto = memberDao.getSelectOne(loggedCode);
-		System.out.println("dto test="+memberDto);
+//		System.out.println("dto test="+memberDto);
 		
 		lectureDto.setSubject(memberDto.getSubject());
-//		lectureDto.setSubject("science");
 		lectureDto.setSelectDate(date);		
 		
 //		System.out.println("lectureDto== "+lectureDto);

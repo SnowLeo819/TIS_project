@@ -29,6 +29,7 @@
 <link rel="stylesheet" href="../css/student.css" />
 <script src="../js/jquery-3.6.0.min.js"></script>
 <script src="../js/main.js" defer></script>
+<script src="../js/gsap/gsap.min.js"></script>
 </head>
 <body>
    <header id="header">
