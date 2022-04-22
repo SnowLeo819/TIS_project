@@ -177,11 +177,15 @@ $(".calendar").on("click", ".dates ul .dateBox", function () {
       //gsap
       $("body").addClass("overHidden");
       $("#detailBox").show();
-      gsap.from("#detailBox .detail", {
-        top: "-100%",
-        ease: "ease",
-        duration: 1,
-      });
+      gsap.fromTo(
+        "#detailBox .detail",
+        { top: "-100%" },
+        {
+          top: "50%",
+          ease: "ease",
+          duration: 1,
+        }
+      );
     },
   });
 });

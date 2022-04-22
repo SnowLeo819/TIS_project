@@ -38,7 +38,7 @@
          <c:choose>
             <c:when test="${empty loggedId}">
                <h1>
-                  <a href="../member/Login.do">나는 문어</a>
+                  <a href="../member/Login.do">출결관리시스템</a>
                </h1>
                <nav id="gnb">
                   <%-- <h2 class="hidden">global navigation bar</h2> --%>
@@ -52,7 +52,7 @@
                <c:choose>
                   <c:when test="${loggedPosition eq 'M'}">
                      <h1>
-                        <a href="../manager/ManageList.do">나는 문어</a>
+                        <a href="../manager/ManageList.do">출결관리시스템</a>
                      </h1>
                      <nav id="gnb">
                         <ul>
@@ -71,7 +71,7 @@
                   </c:when>
                   <c:when test="${loggedPosition eq 'T'}">
                      <h1>
-                        <a href="../attend/Attend.do">나는 문어</a>
+                        <a href="../attend/Attend.do">출결관리시스템</a>
                      </h1>
                      <nav id="gnb">
                         <ul>
@@ -90,7 +90,7 @@
                   
                   <c:otherwise>
                   <h1>
-                        <a href="../lecture/Main.do">나는 문어</a>
+                        <a href="../lecture/Main.do">출결관리시스템</a>
                      </h1>
                      <nav id="gnb">
                         <ul>
