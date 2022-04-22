@@ -1,7 +1,9 @@
 package com.tis.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -59,6 +61,32 @@ public class LectureDao implements LectureService{
 	public int deleteLecture(LectureDto lectureDto) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	
+	@Override
+	public int getDay(String startDay,String endDay) {
+		Map<String, String> hashMap =  new HashMap<>();
+		int result = 0;
+		
+		hashMap.put("startDay",startDay);
+		hashMap.put("endDay",endDay);
+		
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		result = sqlSession.selectOne("getDay",hashMap);
+		
+		sqlSession.close();		
+		return result;
+	}
+
+	@Override
+	public int getDDay(String endDay) {
+		int result = 0;
+		
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		result = sqlSession.selectOne("getDDay",endDay);
+	
+		sqlSession.close();			
+		return result;
 	}
 
 }

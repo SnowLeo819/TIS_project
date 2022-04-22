@@ -19,10 +19,10 @@ pageEncoding="UTF-8"%> <%@ include file="../include/header.jsp"%>
         </li>
         <li class="item">
           <div class="title">
-            <span>성적? 나중 수정</span>
+            <span>종강일</span>
           </div>
           <div class="info">
-            <span class="txt"><span class="point"> 100.0 </span>%</span>
+            <span class="txt"><span class="point">D - ${Dday}</span></span>
           </div>
         </li>
         <li class="item">

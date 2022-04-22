@@ -83,7 +83,7 @@
 				</table>
 				<div class="btns">
 					<a href="../member/EditMypage.do" class="btn btnConfirm">수정하기</a>
-					<button type="reset" class="btn btnCancel">취소</button>
+					<button type="reset" class="btn btnCancel" onclick="window.history.back()">뒤로가기</button>
 				</div>
 			</form>
 		</div>

@@ -144,19 +144,24 @@ $(".calendar").on("click", ".dates ul .dateBox", function () {
   let data = year + month + date;
   console.log("눌렀어 / ", data);
   const dateBody = $("#detailBox .detail table tbody");
-
   $.ajax({
     url: "../lecture/InnerView.do",
     type: "POST",
+    async: false,
     data: {
       mass: "",
       date: data,
     },
     success: function (res) {
-      const dto = res;
+      const list = res;
       dateBody.html("");
       output = "";
-      dto.forEach(function (item, idx) {
+      console.log(list.length);
+      if (list.length <= 0) {
+        alert("강의정보가 없습니다!");
+        return;
+      }
+      list.forEach(function (item, idx) {
         console.log("item==" + item);
         output += `
                   <tr class="item ${idx}">
@@ -168,43 +173,39 @@ $(".calendar").on("click", ".dates ul .dateBox", function () {
       });
       console.log(output);
       dateBody.html(output);
-    },
-  });
 
-  $("body").addClass("overHidden");
-  $("#detailBox").show();
-  gsap.from("#detailBox", {
-    top: "-100%",
-    ease: "ease",
-    duration: 1,
+      //gsap
+      $("body").addClass("overHidden");
+      $("#detailBox").show();
+      gsap.from("#detailBox .detail", {
+        top: "-100%",
+        ease: "ease",
+        duration: 1,
+      });
+    },
   });
 });
 
 // 버튼 누르면 모달 창 닫기 흠......
 const dateBody = $("#detailBox .detail table tbody");
 
-$("#detailBox .topClose").on("click", function () {
-  gsap.to("#detailBox", {
+function detailClose() {
+  gsap.to("#detailBox .detail", {
     top: "-100%",
     ease: "back.in",
     duration: 1,
     onComplete: function () {
       dateBody.html("");
-      $("#detail").hide();
+      $("#detailBox").hide();
       $("body").removeClass("overHidden");
     },
   });
+}
+
+$("#detailBox .topClose").on("click", function () {
+  detailClose();
 });
 
 $("#detailBox .close").on("click", function () {
-  gsap.to("#detailBox", {
-    top: "-100%",
-    ease: "back.in",
-    duration: 1,
-    onComplete: function () {
-      dateBody.html("");
-      $("#detail").hide();
-      $("body").removeClass("overHidden");
-    },
-  });
+  detailClose();
 });

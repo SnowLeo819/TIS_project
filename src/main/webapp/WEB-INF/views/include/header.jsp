@@ -27,6 +27,7 @@
 <link rel="stylesheet" href="../css/calendar.css" />
 <link rel="stylesheet" href="../css/form.css" />
 <link rel="stylesheet" href="../css/student.css" />
+<link rel="stylesheet" href="../css/member.css" />
 <script src="../js/jquery-3.6.0.min.js"></script>
 <script src="../js/main.js" defer></script>
 <script src="../js/gsap/gsap.min.js"></script>

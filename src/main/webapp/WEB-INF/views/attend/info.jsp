@@ -51,7 +51,8 @@
 				</table>
 				<div class="btns">
 					<a href="../attend/AttendUpdate.do?no=${attendDto.no }" class="btn btnConfirm">수정</a>
-					<a href="../attend/AttendDelete.do?no=${attendDto.no }" class="btn btnCancel">삭제</a>
+					<%-- <a href="../attend/AttendDelete.do?no=${attendDto.no }" class="btn btnCancel">삭제</a> --%>
+					<button type="reset" class="btn btnCancel" onclick="window.history.back()">취소</button>
 				</div>
 			</div>
 		</div>

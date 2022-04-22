@@ -51,15 +51,19 @@ public class LectureController {
 	public String main(HttpSession session, Model model) throws ParseException {
 		String loggedCode = (String)session.getAttribute("loggedCode");
 		
-		// 출결 기준일수 30일로 가정할 때..(지정 필요) 
-		double setDate = 30;
+		String startDay = "20220401";	
+		String endDay = "20220426";
+		int setDate = lectureDao.getDay(startDay,endDay);
+		int Dday = lectureDao.getDDay(endDay);
+		
 		double attenCount = attendDao.getAllAttendCount(loggedCode); // 출결일수
 		double attendRate = attenCount/setDate*100;
 		double roundRate = Math.round(attendRate*10)/10.0;
-//		System.out.println("출석일수="+attenCount);
+//		System.out.println("출석일수="+attenCount); 
 //		System.out.println("출석률="+attendRate);
 //		System.out.println("출석률="+Math.round(attendRate*10)/10.0);
 
+		
 //	    SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm:ss");
 		String attendTime = "00:00:00";
 		String leaveTime = "00:00:00";
@@ -86,6 +90,7 @@ public class LectureController {
 		model.addAttribute("attendTime", attendTime);
 		model.addAttribute("leaveTime", leaveTime);
 		model.addAttribute("attendRate", roundRate);
+		model.addAttribute("Dday", Dday);
 		
 		return "lecture/student";
 	}

@@ -48,7 +48,7 @@ body .overHidden { overflow: hidden; height: 100%; }
 
 #calendar .title .subTitle { font-size: 32px; font-weight: 700; margin-bottom: 30px; margin-left: 20px; }
 
-#detailBox { display: none; position: absolute; background-color: rgba(0, 0, 0, 0.6); height: 100%; left: 0; right: 0; top: 0; bottom: 0; }
+#detailBox { display: none; position: fixed; background-color: rgba(0, 0, 0, 0.6); height: 100%; left: 0; right: 0; top: 0; bottom: 0; }
 
 #detailBox .topClose { color: #fff; position: absolute; top: 10px; right: 10px; }
 

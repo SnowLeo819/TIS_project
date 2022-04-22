@@ -6,7 +6,7 @@
 		<div id="inner">
 			<div class="title">
 				<h2 class="subTitle">
-					<a href="../ManageList.do">원생 관리</a><span class="depth"> > 신규 등록</span>
+					<a href="../manager/ManageList.do">원생 관리</a><span class="depth"> > 신규 등록</span>
 				</h2>
 			</div>
 			<form action="../manager/CreateProcess.do" method="POST" class="form" id="info">

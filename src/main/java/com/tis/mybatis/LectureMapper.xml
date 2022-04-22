@@ -24,5 +24,12 @@
 		UPDATE ATTEND SET SUBJECT = #{subject},TEACHER = #{teacher}, TRUNC(#{selectDate},'dd'), CONTENTS = #{contents} WHERE no = #{no}
 	</update>
 
+	<select id="getDay" parameterType="HashMap" resultType="Integer">
+		SELECT TO_DATE(#{endDay}) - TO_DATE(#{startDay}) from dual
+	</select>
+	
+	<select id="getDDay" parameterType="String" resultType="Integer">
+		SELECT TO_DATE(#{endDay}) - TO_DATE(TO_CHAR(SYSDATE, 'YYYYMMDD')) from dual
+	</select>
 
 </mapper>

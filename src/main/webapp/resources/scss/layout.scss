@@ -32,11 +32,12 @@ img {
 #header,
 #footer {
   height: 90px;
+  background-color: $main-color;
+  color: $layout-color;
 }
 
 #header {
   padding: 30px 0;
-  background-color: #111;
   .inner {
     h1 {
       margin: 0;
@@ -45,9 +46,10 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #fff;
+    color: $layout-color;
     h1 {
-      font-size: 24px;
+      font-size: 26px;
+      font-weight: 700;
     }
     #gnb > ul {
       display: flex;
@@ -56,6 +58,8 @@ img {
       margin-right: 30px;
       a {
         padding: 20px 30px;
+        font-size: 18px;
+        font-weight: 500;
       }
     }
     .topMenu {
@@ -98,13 +102,12 @@ main {
 }
 
 #footer {
-  background-color: #111;
   padding: 30px 0;
-  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .btns {

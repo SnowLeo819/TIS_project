@@ -21,4 +21,8 @@ public interface LectureService {
 
 	// 삭제
 	public int deleteLecture(LectureDto lectureDto);
+
+	// 종강일,.,.
+	public int getDay(String startDay, String endDay);
+	public int getDDay(String endDay);
 }

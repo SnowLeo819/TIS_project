@@ -12,39 +12,29 @@ pageEncoding="UTF-8"%> <%@ include file="../include/header.jsp" %>
         id="join"
         class="form"
       >
-        <table class="left">
-          <colgroup>
-            <col style="width: 20%" />
-            <col style="width: 80%" />
-          </colgroup>
-          <tbody>
-            <tr>
-              <th>아이디 <span class="required">*</span></th>
-              <td>
-                <input
-                  type="text"
-                  name="id"
-                  id="user_id"
-                  placeholder="아이디를 입력하세요."
-                />
-              </td>
-            </tr>
-            <tr>
-              <th>패스워드 <span class="required">*</span></th>
-              <td>
-                <input
-                  type="password"
-                  name="password"
-                  id="user_pw"
-                  placeholder="비밀번호를 입력하세요."
-                />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="btns">
-          <button type="submit" class="btn btnConfirm">로그인</button>
-          <a href="../member/Join.do" class="btn btnCancel">회원가입</a>
+        <div class="panel">
+          <div class="panelInner">
+            <div class="innerWrap">
+              <input
+                type="text"
+                name="id"
+                id="user_id"
+                placeholder="아이디를 입력하세요."
+                class="text"
+              />
+              <input
+                type="password"
+                name="password"
+                id="user_pw"
+                placeholder="비밀번호를 입력하세요."
+                class="text"
+              />
+            </div>
+            <div class="btns">
+              <button type="submit" class="btn btnConfirm">로그인</button>
+              <a href="../member/Join.do" class="btn btnCancel">회원가입</a>
+            </div>
+          </div>
         </div>
       </form>
     </div>

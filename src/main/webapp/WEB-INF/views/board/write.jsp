@@ -42,7 +42,7 @@
 				<input type="hidden" name="code" id="code" value="${memberDto.code}" />
 				<div class="btns">
 					<button type="submit" class="btn btnConfirm">글쓰기</button>
-					<button type="reset" class="btn btnCancel">취소</button>
+					<button type="reset" class="btn btnCancel" onclick="window.history.back()">취소</button>
 				</div>
 			</form>
 		</div>
