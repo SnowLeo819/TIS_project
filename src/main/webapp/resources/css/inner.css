@@ -1,30 +1,30 @@
-.searchBox { width: 100%; }
+#memberSearch { width: 100%; }
 
-.searchBox form { width: 100%; height: 50px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+#memberSearch form { width: 100%; height: 50px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 
-.searchBox form label { display: inline-block; width: 30%; height: 30px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+#memberSearch form label { display: inline-block; width: 30%; height: 30px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 
-.searchBox form label span { font-size: 14px; width: 50%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+#memberSearch form label span { font-size: 14px; width: 50%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 
-.searchBox form label select { height: 100%; width: 50%; border: none; font-size: 14px; background-color: #eee; text-align: center; }
+#memberSearch form label select { height: 100%; width: 50%; border: none; font-size: 14px; background-color: #eee; text-align: center; }
 
-.searchBox form label.positionBox { width: 20%; }
+#memberSearch form label.positionBox { width: 20%; }
 
-.searchBox form label.subjectBox { width: 50%; }
+#memberSearch form label.subjectBox { width: 50%; }
 
-.searchBox form label.subjectBox span { width: 20%; }
+#memberSearch form label.subjectBox span { width: 20%; }
 
-.searchBox form label.subjectBox select { width: 80%; }
+#memberSearch form label.subjectBox select { width: 80%; }
 
-.searchBox form label.nameBox { width: 30%; }
+#memberSearch form label.nameBox { width: 30%; }
 
-.searchBox form label.nameBox span { width: 33.3%; }
+#memberSearch form label.nameBox span { width: 33.3%; }
 
-.searchBox form label.nameBox input { width: 66.6%; height: 100%; padding: 5px; border: 2px solid #eee; }
+#memberSearch form label.nameBox input { width: 66.6%; height: 100%; padding: 5px; border: 2px solid #eee; }
 
-.searchBox form .btn { padding: 0; height: 30px; width: 10%; background-color: #eee; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+#memberSearch form .btn { padding: 0; height: 30px; width: 10%; background-color: #eee; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 
-.searchBox form .btn span { font-size: 18px; }
+#memberSearch form .btn span { font-size: 18px; }
 
 .viewer { width: 100%; height: calc(100% - 50px); border: 1px solid #ccc; overflow-y: auto; overflow-x: hidden; background-color: #fafafa; position: relative; }
 

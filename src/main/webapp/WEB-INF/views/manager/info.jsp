@@ -10,11 +10,11 @@
 	<div class="contents">
 		<div id="inner">
 			<div class="title">
-				<h2 class="subTitle">
-					<a href="../manager/ManageList.do">원생 관리</a><span class="depth"> > 정보 조회</span>
+				<h2 class="subTitle">원생 정보 조회
+					<%-- <a href="../manager/ManageList.do">원생 관리</a><span class="depth"> > 정보 조회</span> --%>
 				</h2>
 			</div>
-			<div class="info">
+			<div class="form" id="info">
 				<table>
 					<colgroup>
 						<col style="width: 20%" />
@@ -78,11 +78,11 @@
 					</tr>
 				</table>
 			</div>
-		</div>
-		<div class="btns">
-			<a href="javascript:history.back(-1)" class="btn">뒤로 가기</a>
-			<a href="../manager/DeleteProcess.do?code=${memberDto.code }" class="btn delete">삭 제</a>
-			<a href="../manager/InfoUpdate.do?code=${memberDto.code }" class="btn update">정보 수정</a>
+			<div class="btns">
+				<a href="javascript:history.back(-1)" class="btn btnCancel">뒤로 가기</a>
+				<a href="../manager/DeleteProcess.do?code=${memberDto.code }" class="btn delete btnCancel">삭 제</a>
+				<a href="../manager/InfoUpdate.do?code=${memberDto.code }" class="btn update btnConfirm">정보 수정</a>
+			</div>
 		</div>
 	</div>
 </main>

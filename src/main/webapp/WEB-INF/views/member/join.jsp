@@ -52,8 +52,8 @@
 									<option value="010" selected>010</option>
 									<option value="011">011</option>
 									<option value="02">02</option>
-								</select>
-								<input type="text" name="tellMiddle" class="short" id="user_phone_middle" placeholder="전화번호를 입력하세요." />
+								</select> - 
+								<input type="text" name="tellMiddle" class="short" id="user_phone_middle" placeholder="전화번호를 입력하세요." /> - 
 								<input type="text" name="tellLast" class="short" id="user_phone_last" placeholder="전화번호를 입력하세요." />
 							</td>
 						</tr>

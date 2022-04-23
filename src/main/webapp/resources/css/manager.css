@@ -1,0 +1,49 @@
+#memberSearch { width: 100%; padding: 25px 100px; }
+
+#memberSearch form { width: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; padding: 15px; }
+
+#memberSearch form label { display: inline-block; width: 30%; height: 30px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+
+#memberSearch form label span { font-size: 14px; width: 50%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+
+#memberSearch form label select { height: 100%; width: 50%; border: none; font-size: 14px; background-color: #eee; text-align: center; }
+
+#memberSearch form label.positionBox { width: 20%; }
+
+#memberSearch form label.subjectBox { width: 50%; }
+
+#memberSearch form label.subjectBox span { width: 20%; }
+
+#memberSearch form label.subjectBox select { width: 80%; }
+
+#memberSearch form label.nameBox { width: 30%; }
+
+#memberSearch form label.nameBox span { width: 33.3%; }
+
+#memberSearch form label.nameBox input { width: 66.6%; height: 100%; padding: 5px; border: 2px solid #eee; }
+
+#memberSearch form .btn { padding: 0; height: 30px; width: 10%; background-color: #ccc; border: 1px solid #eee; -webkit-transform: translateY(-3px); transform: translateY(-3px); display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+
+#memberSearch form .btn span { font-size: 18px; }
+
+#viewer { width: 100%; height: 400px; border: 1px solid #ccc; overflow-y: auto; overflow-x: hidden; background-color: #fafafa; }
+
+#viewer table { width: 100%; }
+
+#viewer table thead { top: 0; height: 30px; -webkit-box-shadow: 1px 1px 3px rgba(51, 51, 51, 0.3); box-shadow: 1px 1px 3px rgba(51, 51, 51, 0.3); background-color: white; }
+
+#viewer table thead th { border-left: 1px solid #ccc; font-size: 16px; vertical-align: middle; text-align: center; }
+
+#viewer table thead th:first-child { border-left: none; }
+
+#viewer table tbody tr td { border: 1px solid #ccc; padding: 3px 0; text-align: center; }
+
+#info { width: 80%; padding-top: 20px; }
+
+#info table { width: 100%; height: 60%; border-collapse: collapse; border-bottom: 1px solid #ccc; }
+
+#info table tr th { padding: 15px; font-size: 16px; background-color: whitesmoke; font-weight: 700; text-align: center; }
+
+#info table tr th .required { margin-left: 3px; color: red; font-size: 12px; vertical-align: top; }
+
+#info table tr td { height: 10%; padding-left: 30px; vertical-align: middle; }

@@ -2,14 +2,14 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
 <main id="main">
-	<div class="contents">
+	<div class="contents" id="manageContent">
 		<div id="inner">
 			<div class="title">
 				<h2 class="subTitle">
 					<a href="../manager/ManageList.do">원생 관리</a>
 				</h2>
 			</div>
-			<div class="searchBox">
+			<div class="searchBox" id="memberSearch">
 				<form action="../manager/ManageList.do" method="GET">
 					<label class="positionBox"> <span>분류</span> <select
 						name="search_position" id="position">
@@ -54,7 +54,7 @@
 					</button>
 				</form>
 			</div>
-			<div class="viewer">
+			<div class="viewer" id="viewer">
 				<form action="../manager/DeleteListProcess.do" method="GET"
 					id="delete">
 					<table>
@@ -144,10 +144,10 @@
 					</table>
 				</form>
 			</div>
-		</div>
-		<div class="btns">
-			<button type="submit" form="delete" class="btn">삭 제</button>
-			<a href="Create.do" class="btn create">신규 등록</a>
+			<div class="btns">
+				<a href="Create.do" class="btn create btnConfirm">신규 등록</a>
+				<button type="submit" form="delete" class="btn btnCancel">삭 제</button>
+			</div>
 		</div>
 	</div>
 	<!-- 	<div class="sidebar">

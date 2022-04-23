@@ -34,7 +34,7 @@ main { min-height: calc(100% - 180px); }
 
 main .contents { display: -webkit-box; display: -ms-flexbox; display: flex; margin: auto; max-width: 1300px; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
 
-main .contents #inner { margin: 15px; width: 100%; margin-bottom: 50px; position: relative; }
+main .contents #inner { margin: 15px; width: 100%; position: relative; }
 
 main .contents #inner .title { margin: 15px; }
 
@@ -42,7 +42,7 @@ main .contents #inner .title .subTitle { text-align: center; font-size: 36px; fo
 
 #footer { padding: 30px 0; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; font-size: 16px; font-weight: 500; }
 
-.btns { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; margin-top: 50px; }
+.btns { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; margin-top: 40px; }
 
 .btns .btn { display: -webkit-box; display: -ms-flexbox; display: flex; width: 110px; height: 40px; border-radius: 5px; margin: 0 5px; color: #fff; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; font-size: 16px; }
 

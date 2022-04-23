@@ -9,8 +9,8 @@
 				<h2><a href="../manager/ManageList.do">원생 관리</a><span> > 정보 수정</span></h2>
 				<span class="caution">※ 분류, 아이디, 비밀번호 변경은 삭제 후 재가입 해야합니다.</span>
 			</div>
-			<form action="../manager/InfoUpdateProcess.do?code=${memberDto.code }" method="POST" id="info">
-				<div class="info">
+			<form action="../manager/InfoUpdateProcess.do?code=${memberDto.code }" method="POST" id="info"  class="form" >
+				<%-- <div> --%>
 					<table>
 						<colgroup>
 							<col style="width: 20%" />
@@ -22,7 +22,7 @@
 						</tr>
 						<tr>
 							<th>분류</th>
-							<td><c:if test="${memberDto.position eq 'S' }"> 원생 </c:if> <c:if test="${memberDto.position eq 'T' }"> 강사 </c:if> <c:if test="${memberDto.position eq 'F' }"> 직원 </c:if></td>
+							<td class="left"><c:if test="${memberDto.position eq 'S' }"> 원생 </c:if> <c:if test="${memberDto.position eq 'T' }"> 강사 </c:if> <c:if test="${memberDto.position eq 'F' }"> 직원 </c:if></td>
 						</tr>
 						<tr>
 							<th>아이디</th>
@@ -34,7 +34,7 @@
 						</tr>
 						<tr>
 							<th>전화번호<span class="required">⁕</span></th>
-							<td>
+							<td class="left">
 								<select name="tellFirst" class="short tell">
 									<c:if test="${memberDto.tellFirst eq '010' }">
 										<option value="010" selected>010</option>
@@ -52,8 +52,8 @@
 										<option value="02" selected>02</option>
 									</c:if>
 								</select>
-								- <input type="number" name="tellMiddle" id="tellMiddle" class="tell" value="${memberDto.tellMiddle }" /> -
-								<input type="number" name="tellLast" id="tellLast" class="tell" value="${memberDto.tellLast }" />
+								- <input type="number" name="tellMiddle" id="tellMiddle" class="tell short" value="${memberDto.tellMiddle }" /> -
+								<input type="number" name="tellLast" id="tellLast" class="tell short" value="${memberDto.tellLast }" />
 							</td>
 						</tr>
 						<tr>
@@ -118,14 +118,14 @@
 						</tr>
 						<tr>
 							<th>등록일<span class="required">⁕</span></th>
-							<td><input type="date" name="regDate" id="regDate" value="${memberDto.regDate}" /></td>
+							<td class="left"><input type="date" name="regDate" id="regDate" value="${memberDto.regDate}" /></td>
 						</tr>
 					</table>
-				</div>
-				<div class="btns">
-					<a href="javascript:history.back(-1)" class="btn">뒤로 가기</a>
-					<button type="submit" class="btn">확 인</button>
-				</div>
+					<div class="btns">
+						<a href="javascript:history.back(-1)" class="btn btnCancel">뒤로 가기</a>
+						<button type="submit" class="btn btnConfirm">확 인</button>
+					</div>
+				<%-- </div> --%>
 			</form>
 		</div>
 	</div>
