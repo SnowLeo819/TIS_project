@@ -38,30 +38,34 @@
 							<th>내용</th>
 							<td colspan="3" class="left">${boardDto.contents }</td>
 						</tr>
-						<tr class="comment">
+						<c:if test="${!isNull}">
+						<tr class="comment" data-id="${boardDto.no}">
 							<th>댓글</th>
 							<td colspan="3" class="left">
 								<ul class="replyList" id="replyList">
 									<c:forEach items="${replyList }" var="replyDto" varStatus="loop" begin="0">
-										<li class="replyItem" data-idx="${replyDto.no }" data-code="${replyDto.code}">
+										<li class="replyItem" data-no="${replyDto.no }" data-code="${replyDto.code}">
 											<div class="replyBox">
 												<span class="name">${replyDto.name }</span>
 												<span class="txt">${replyDto.txt }</span>
 												<span class="date">${replyDto.regDate }</span>
 											</div>
-											<div class="btns">
-												<button type="button" class="btn sticker" id="update">
-													<span class="material-icons">edit</span>
-												</button>
-												<button type="button" class="btn sticker" id="delete">
-													<span class="material-icons">delete</span>
-												</button>
-											</div>											
+											<c:if test="${loggedCode==replyDto.code}">
+												<div class="btns">
+													<button type="button" class="btn sticker" id="update">
+														<span class="material-icons">edit</span>
+													</button>
+													<button type="button" class="btn sticker" id="delete">
+														<span class="material-icons">delete</span>
+													</button>
+												</div>
+											</c:if>										
 										</li>
 									</c:forEach>
 								</ul>
 							</td>
 						</tr>
+						</c:if> 
 						<tr class="comment">
 							<th>댓글 입력</th>
 							<td colspan="3" class="left">

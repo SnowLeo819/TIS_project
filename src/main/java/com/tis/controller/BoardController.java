@@ -136,7 +136,9 @@ public class BoardController {
 		
 		// 댓글리스트 가져오기
 		List<ReplyDto> replyList = replyDao.getReplyList(no);
-		System.out.println(replyList.toString());
+		System.out.println(replyList.size());
+		boolean isNull = true;
+		if(replyList.size()>=0) isNull = false;
 		
 		// 앞뒤글 정보 가져오기
 		int prevNum = num - 1;
@@ -152,6 +154,7 @@ public class BoardController {
 		model.addAttribute("search_word",search_word);
 		model.addAttribute("cate_select",cate_select);
 		model.addAttribute("replyList",replyList);
+		model.addAttribute("isNull",isNull);
 		
 		// 페이지 연결
 		return "board/view"; 
@@ -235,17 +238,41 @@ public class BoardController {
 		}
 	}
 	
-	@RequestMapping("/ReplyDelete.do")
+	@RequestMapping("/DeleteReply.do")
 	@ResponseBody
-	public Map<String, Object> replyDelete(int no,String code, int boardNo){
+	public Map<String, Object> deleteReply(int no, Integer boardID, HttpSession session){
 		Map<String, Object> turnData = new HashMap<>();
 		int result= 0;
-		
+
+		String code = (String)session.getAttribute("loggedCode");
 		replyDto.setNo(no);
 		replyDto.setCode(code);
 
 		result = replyDao.deleteReply(replyDto);
-		List<ReplyDto> replyList = replyDao.getReplyList(boardNo);
+		List<ReplyDto> replyList = replyDao.getReplyList(boardID);
+				
+		turnData.put("result", result);
+		turnData.put("replyList", replyList);
+		
+		return turnData;
+	}
+	
+	@RequestMapping("/InsertReply.do")
+	@ResponseBody
+	public Map<String, Object> insertReply(String txt, Integer boardID, HttpSession session){
+		Map<String, Object> turnData = new HashMap<>();
+		int result= 0;
+		
+		String code = (String)session.getAttribute("loggedCode");
+		String name = (String)session.getAttribute("loggedName");
+		
+		replyDto.setName(name);
+		replyDto.setCode(code);
+		replyDto.setTxt(txt);
+		replyDto.setBoardId(boardID);
+
+		result = replyDao.insertReply(replyDto);
+		List<ReplyDto> replyList = replyDao.getReplyList(boardID);
 				
 		turnData.put("result", result);
 		turnData.put("replyList", replyList);

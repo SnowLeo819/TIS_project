@@ -108,7 +108,7 @@ $(".fileBox input[type='file']").on("change", function () {
 });
 
 // 날짜List 부분
-document.getElementById("now_date").valueAsDate = new Date();
+// document.getElementById("now_date").valueAsDate = new Date();
 
 // 해당날짜 리스트 불러오기
 let now = $("#now_date");
@@ -156,14 +156,95 @@ $("#now_date").on("change", function () {
 
 // 댓글 삭제
 //ReplyDelete.do
-$(".comment td .replyList").on("click", function () {
-  // let no = $(".replyList .replyItem").data("idx");
-  // let code = $(".replyList .replyItem").data("code");
-  // console.log("삭제눌렀어 / ", "no=", no, "code=", code);
-  console.log("삭제눌렀어");
+
+let insertUL = $(".replyList");
+$(".comment td .replyList").on("click", ".replyItem .btns #delete", function () {
+  let no = $(this).closest("li").data("no");
+  let boardID = $(".comment").data("id");
+  console.log("삭제눌렀어 / ", "boardID=", boardID, "no=", no);
+  $.ajax({
+    url: "../board/DeleteReply.do",
+    type: "GET",
+    data: {
+      no: no,
+      boardID: boardID,
+    },
+    success: function ({ replyList, result }) {
+      output = "";
+      if (result <= 0) {
+        alert("오류발생.. 잠시후 다시 시도해주세요.");
+        return;
+      } else {
+        replyList.forEach(function (item, idx) {
+          output += `	<li class="replyItem" data-no="${item.no}" data-code="${item.code}">
+          <div class="replyBox">
+          <span class="name">${item.name}</span>
+          <span class="txt">${item.txt}</span>
+          <span class="date">${item.regDate}</span>
+          </div>
+          <div class="btns">
+          <button type="button" class="btn sticker" id="update">
+          <span class="material-icons">edit</span>
+          </button>
+          <button type="button" class="btn sticker" id="delete">
+          <span class="material-icons">delete</span>
+          </button>
+          </div>											
+                      </li>`;
+        });
+      }
+      // console.log(output);
+      insertUL.html("");
+      insertUL.html(output);
+    },
+  });
 });
 
 // 댓글 입력
 $(".comment .left .inputBox button").on("click", function () {
-  console.log("입력눌렀어");
+  // let boardID = $(".comment").data("id");
+  let input = $(".inputBox #reply").val();
+  let boardID = $(".comment").data("id");
+  console.log("입력눌렀어", input, "boardID=", boardID);
+  if (input === null || input === "") {
+    alert("내용을 입력하세요");
+    return;
+  }
+  $.ajax({
+    url: "../board/InsertReply.do",
+    type: "POST",
+    data: {
+      txt: input,
+      boardID: boardID,
+    },
+    success: function ({ replyList, result }) {
+      output = "";
+      if (result <= 0) {
+        alert("오류발생.. 잠시후 다시 시도해주세요.");
+        return;
+      } else {
+        replyList.forEach(function (item, idx) {
+          output += `	<li class="replyItem" data-no="${item.no}" data-code="${item.code}">
+                        <div class="replyBox">
+                          <span class="name">${item.name}</span>
+                          <span class="txt">${item.txt}</span>
+                          <span class="date">${item.regDate}</span>
+                        </div>
+                        <div class="btns">
+                          <button type="button" class="btn sticker" id="update">
+                            <span class="material-icons">edit</span>
+                          </button>
+                          <button type="button" class="btn sticker" id="delete">
+                            <span class="material-icons">delete</span>
+                          </button>
+                        </div>											
+                      </li>`;
+        });
+      }
+      // console.log(output);
+      insertUL.html("");
+      insertUL.html(output);
+      $(".inputBox #reply").val("");
+    },
+  });
 });

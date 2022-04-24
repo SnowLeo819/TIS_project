@@ -3,7 +3,6 @@ pageEncoding="UTF-8"%> <%@ include file="../include/header.jsp"%>
 <head>
   <script src="../js/calendar.js" defer></script>
 </head>
-
 <main>
   <div class="attend">
     <div id="top">
@@ -39,8 +38,13 @@ pageEncoding="UTF-8"%> <%@ include file="../include/header.jsp"%>
             <span>퇴실</span>
           </div>
           <div class="info">
-            <span class="txt ${leaNull?"hidden":""}"><span class="point"> ${leaNull?"":leaveTime}</span></span>
-          <a class="btn btnConfirm ${leaNull?"":"hidden"}" href="../attend/AttendOutProcess.do">퇴실</a>
+						<c:if test="${attNull}">
+              <span class="point">입실 전</span>
+						</c:if>	
+						<c:if test="${!attNull}">
+              <span class="txt ${leaNull?"hidden":""}"><span class="point"> ${leaNull?"":leaveTime}</span></span>
+              <a class="btn btnConfirm ${leaNull?"":"hidden"}" href="../attend/AttendOutProcess.do">퇴실</a>
+						</c:if>	
           </div>
         </li>
       </ul>
