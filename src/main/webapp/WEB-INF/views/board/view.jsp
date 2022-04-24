@@ -9,7 +9,7 @@
 				<h2 class="subTitle">VIEW</h2>
 			</div>
 			<!-- 데이터 받아서 처리하기....forward방식으로 데이터 보여주기....  -->
-			<div class="form">
+			<div class="form board" >
 				<table class="left">
 					<colgroup>
 						<col style="width: 150px" />
@@ -19,24 +19,39 @@
 					</colgroup>
 					<tbody>
 						<tr>
-							<th>CATEGORY</th>
+							<th>글머리</th>
 							<td class="left">${boardDto.category }</td>
-							<th>HIT</th>
+							<th>조회수</th>
 							<td class="left">${boardDto.hit }</td>
 						</tr>
 						<tr>
 							<th>작성자</th>
 							<td class="left">${boardDto.id }</td>
-							<th>DATE</th>
+							<th>작성일</th>
 							<td class="left">${boardDto.regDate }</td>
 						</tr>
 						<tr>
-							<th>TITLE</th>
+							<th>제목</th>
 							<td colspan="3" class="left">${boardDto.title }</td>
 						</tr>
-						<tr>
-							<th>CONTENTS</th>
+						<tr id="boardContents">
+							<th>내용</th>
 							<td colspan="3" class="left">${boardDto.contents }</td>
+						</tr>
+						<tr>
+							<th>댓글</th>
+							<td colspan="3" class="left">댓글내용 가져오기//</td>
+						</tr>
+						<tr id="comment">
+							<th>댓글 입력</th>
+							<td colspan="3" class="left">
+							  <div class="inputBox">
+								<textarea id="reply" placeholder="내용을 입력하세요." style="width: calc(100% - 60px)"></textarea>
+								<button type="button" class="btn sticker">
+									<span class="material-icons">edit</span>
+								</button>
+								</div>
+							</td>
 						</tr>
 					</tbody>
 				</table>

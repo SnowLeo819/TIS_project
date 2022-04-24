@@ -16,25 +16,27 @@
 					</colgroup>
 					<tbody>
 						<tr>
-							<th>카테고리</th>
+							<th>글머리</th>
 							<td>
 								<select name="category">
-								<option value="notice"   ${param.search_select=="notice"?"selected":"" }>공지사항</option>
-								<option value="question" ${param.search_select=="question"?"selected":"" }>질의문답</option>
-								<option value="etc" ${param.search_select=="etc"?"selected":"" }>기타문의</option>
+								<c:if test="${ loggedPosition != 'S'}">
+									<option value="notice">공지사항</option>
+								</c:if>
+								<option value="question">질의문답</option>
+								<option value="etc">기타문의</option>
 								</select>
 							</td>
 						</tr>
 						<tr>
-							<th>title <span class="required">*</span></th>
+							<th>제목<span class="required">*</span></th>
 							<td><input type="text" name="title" id="title" placeholder="제목을 입력하세요." /></td>
 						</tr>
 						<tr>
-							<th>id <span class="required">*</span></th>
+							<th>아이디<span class="required">*</span></th>
 							<td><input type="text" name="id" id="id" value="${memberDto.id}" readonly class="readonly" /></td>
 						</tr>
 						<tr>
-							<th>contents<span class="required">*</span></th>
+							<th>내용<span class="required">*</span></th>
 							<td class="left"><textarea placeholder="내용을 입력하세요." name="contents" id="summernote"></textarea></td>
 						</tr>
 					</tbody>

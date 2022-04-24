@@ -16,7 +16,7 @@ public interface AttendService {
 	
 	// 퇴실 
 	public int AttendOut(AttendDto attendDto);
-	
+
 	// 전체 출결리스트 가져오기
 	public List<AttendDto> getAllList(int start, int end,String search_select, String search_word);
 	public List<AttendDto> getSearchAllList(String search_select, String search_word);
@@ -45,6 +45,8 @@ public interface AttendService {
 	int updateAttend(AttendDto attendDto);
 
 	public List<AttendDto> getAllAttend(String code);
+	
+	public AttendDto getState(AttendDto attendDto);
 
 	
 }

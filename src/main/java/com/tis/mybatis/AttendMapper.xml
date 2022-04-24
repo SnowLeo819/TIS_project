@@ -39,7 +39,6 @@
 			ATTENDTIME = TO_date(#{attendTime},'HH24:MI:SS'),
 			LEAVETIME = TO_date(#{leaveTime},'HH24:MI:SS'),			
 			state=#{state}
-			
 			WHERE no=#{no}
 	</update>
 	
@@ -52,6 +51,11 @@
    <select id="AttendState" parameterType="AttendDto"  resultType="Integer">
    SELECT ROUND((SYSDATE-ATTENDtime)*24) FROM attend
       WHERE CODE=#{code} and attendDate = to_char(sysdate,'yyyy-mm-dd')
+   </select>
+   
+<!--일자별 출석상태 - main 페이지 -->
+   <select id="getState" parameterType="AttendDto"  resultType="String">
+   	SELECT * FROM ATTEND WHERE ATTENDDATE = TO_DATE(#{attendDate},'YY-MM-DD') AND CODE = #{code}
    </select>
 
 </mapper>

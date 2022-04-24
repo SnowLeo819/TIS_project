@@ -54,12 +54,7 @@ function makeCalendar(pYear, pMonth) {
     selectYear = leapYear;
   }
 
-  queryDate =
-    firstDay.getFullYear() +
-    "" +
-    addZero(firstDay.getMonth() + 1) +
-    "" +
-    addZero(firstDay.getDate());
+  queryDate = firstDay.getFullYear() + "" + addZero(firstDay.getMonth() + 1) + "" + addZero(firstDay.getDate());
   $("#pickedDate").text(addZero(today.getDate()));
   $("#pickedDay").text(dayList[today.getDay()]);
 
@@ -69,30 +64,39 @@ function makeCalendar(pYear, pMonth) {
       output += `<li class="blank"><span></span></li>`;
       //continue;
     } else {
-      if (
-        today.getDate() === count &&
-        today.getFullYear() === firstDay.getFullYear() &&
-        today.getMonth() === firstDay.getMonth()
-      ) {
-        output += `<li class="today dateBox" data-date="${count}" data-year="${firstDay.getFullYear()}" data-month="${
-          firstDay.getMonth() + 1
-        }">
+      if (today.getDate() === count && today.getFullYear() === firstDay.getFullYear() && today.getMonth() === firstDay.getMonth()) {
+        output += `<li class="today dateBox" data-date="${count}" data-year="${firstDay.getFullYear()}" data-month="${firstDay.getMonth() + 1}">
                     <span>${count}</span>`;
       } else {
-        output += `<li class="dateBox ${firstDay.getFullYear()}.${
-          firstDay.getMonth() + 1
-        }.${count}" data-date="${count}" data-year="${firstDay.getFullYear()}" data-month="${
-          firstDay.getMonth() + 1
-        }">
-                    <span>${count}</span>`;
+        output += `<li class="dateBox ${firstDay.getFullYear()}.${firstDay.getMonth() + 1}.${count}" data-date="${count}" data-year="${firstDay.getFullYear()}" data-month="${firstDay.getMonth() + 1}">
+                    <div class="topBox">
+                      <span>${count}</span>`;
       }
 
-      // ajax 요청 ㄱㄱ 값이 있으면 true
-      let date = `${firstDay.getFullYear()}${addZero(
-        firstDay.getMonth() + 1
-      )}${addZero(count)}`;
+      let date = `${firstDay.getFullYear()}${addZero(firstDay.getMonth() + 1)}${addZero(count)}`;
       let dateList = [];
       console.log(date);
+
+      // // // 해당일 출석여부를 가져오는 ajax  완성 못하면 삭제하기.//
+      // $.ajax({
+      //   url: "../attend/GetState.do",
+      //   type: "GET",
+      //   async: false, // 기존 비동기 방식 -> 동기방식으로 전환해줌!! 안하면 밀려서 오류남;;
+      //   data: {
+      //     date: date,
+      //   },
+      //   success: function (res) {
+      //     console.log(res.state);
+      //     if (res.length > 0) {
+      //       output += `<span>${state}</span>
+      //                 </div>`;
+      //     }
+      //   },
+      // });
+
+      output += `</div>`;
+
+      // 해당일 강의일정 안내를 가져오는 ajax
       $.ajax({
         url: "../lecture/InnerView.do",
         type: "GET",
@@ -103,7 +107,7 @@ function makeCalendar(pYear, pMonth) {
         },
         success: function (res) {
           dateList = res;
-          console.log("dateList=", dateList);
+          // console.log("dateList=", dateList);
         },
       });
       // 일정이 있는경우 집어넣기..-------------------------------
@@ -142,7 +146,7 @@ $(".calendar").on("click", ".dates ul .dateBox", function () {
   // console.log("눌렀어 / ", year, month, date);
 
   let data = year + month + date;
-  console.log("눌렀어 / ", data);
+  console.log("눌렀어 /", data);
   const dateBody = $("#detailBox .detail table tbody");
   $.ajax({
     url: "../lecture/InnerView.do",
@@ -164,7 +168,7 @@ $(".calendar").on("click", ".dates ul .dateBox", function () {
       list.forEach(function (item, idx) {
         console.log("item==" + item);
         output += `
-                  <tr class="item ${idx}">
+                  <tr class="item${idx}">
                     <td>${item.contents}</td>
                     <td>${item.subject}</td>
                     <td>${item.teacher}</td>

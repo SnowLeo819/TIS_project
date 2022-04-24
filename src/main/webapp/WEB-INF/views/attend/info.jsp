@@ -5,10 +5,10 @@
 
 <main>
 	<div class="contents">
-		<div class="title">
-			<h2 class="subTitle">STUDENTS INFO</h2>
-		</div>
 		<div id="inner">
+			<div class="title">
+				<h2 class="subTitle">STUDENTS INFO</h2>
+			</div>
 			<div class="tableBox">
 				<table class="left">
 					<colgroup>

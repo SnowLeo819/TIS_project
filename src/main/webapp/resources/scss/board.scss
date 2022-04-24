@@ -7,6 +7,34 @@
   width: 100%;
   outline: none;
   border: none;
+  #boardContents {
+    th,
+    td {
+      height: 300px;
+    }
+  }
+  #comment {
+    td {
+      vertical-align: middle;
+    }
+  }
+  #comment {
+    .inputBox {
+      display: flex;
+      justify-content: space-between;
+      height: 100%;
+      #reply {
+        min-height: 100px;
+      }
+      button {
+        height: 100px;
+        background-color: #666;
+        span {
+          color: #fff;
+        }
+      }
+    }
+  }
   tr {
     border-bottom: 1px solid $border-color;
     &:hover {
@@ -108,23 +136,6 @@
 }
 
 .prevAndNext {
-  .item {
-    display: flex;
-    padding: 10px;
-    .direc {
-      display: flex;
-      max-width: 100px;
-      justify-content: space-between;
-      align-items: center;
-      margin-right: 15px;
-      span {
-        margin-right: 15px;
-      }
-    }
-  }
-}
-
-.prevAndNext {
   margin: 50px 0;
   border-top: 1px solid #d9d9d9;
   .inner {
@@ -141,7 +152,17 @@
   .item {
     display: flex;
     align-items: center;
-    padding: 20px;
+    padding: 10px 20px;
     border-bottom: 1px solid #d9d9d9;
+    .direc {
+      display: flex;
+      max-width: 100px;
+      justify-content: space-between;
+      align-items: center;
+      margin-right: 15px;
+      span {
+        margin-right: 15px;
+      }
+    }
   }
 }

@@ -40,7 +40,7 @@ public class MemberController {
 	public void loginProcess(MemberDto memberDto, HttpServletResponse response, HttpSession session) throws Exception {
 
 		logmemberDto = memberDao.isRegistered(memberDto);
-
+		System.out.println(logmemberDto);
 		if (logmemberDto != null) {
 			String temp = logmemberDto.getCode();
 			logmemberDto.setPosition(temp.substring(0, 1));

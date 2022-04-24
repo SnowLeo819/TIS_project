@@ -47,6 +47,7 @@ public class AttendController {
 		int result = 0; 
 		
 		MemberDto logged = (MemberDto)session.getAttribute("loggedMember");
+		String position = (String)session.getAttribute("loggedPosition");
 		attendDto.setCode(logged.getCode());
 		attendDto.setName(logged.getName());
 		attendDto.setSubject(logged.getSubject());
@@ -75,6 +76,7 @@ public class AttendController {
 		
 		result = attendDao.AttendCheck(attendDto);
 		if(result > 0) {
+			if(position.equals("S")) ScriptWriter.alertAndNext(response, "정상출석", "../lecture/Main.do");
 			ScriptWriter.alertAndNext(response, "정상출석", "../board/List.do");
 		} else {
 			ScriptWriter.alertAndBack(response, "다시시도 ㄱㄱ..");
@@ -85,9 +87,10 @@ public class AttendController {
 	   @RequestMapping("/AttendOutProcess.do")
 	   public void checkOut(HttpSession session, HttpServletResponse response) throws Exception{
 	      int result = 0;
-	       SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm:ss");
+	      SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm:ss");
 	      Date outTime = dateFormat.parse("18:00:00"); // 퇴실 기준시간(고정 - 퇴실때 써)
 	      MemberDto loggedMember = (MemberDto)session.getAttribute("loggedMember");
+	      String position = (String)session.getAttribute("loggedPosition");
 	      
 	      attendDto.setCode(loggedMember.getCode());
 	      
@@ -95,7 +98,8 @@ public class AttendController {
 	      
 	      if(judge >= 1) attendDto.setState("출석");
 	      result = attendDao.AttendOut(attendDto);
-	         if(result > 0) {
+	      if(result > 0) {
+	    	 if(position.equals("S")) ScriptWriter.alertAndNext(response, "정상퇴실", "../lecture/Main.do");
 	         ScriptWriter.alertAndNext(response, "정상퇴실", "../board/List.do");
 	      } else {
 	         ScriptWriter.alertAndBack(response, "다시시도 ㄱㄱ..");
@@ -153,4 +157,22 @@ public class AttendController {
 			return attendDateList;	    
 		}
 	
+//		//해당날짜 리스트
+//		@GetMapping("/GetState.do")
+//		@ResponseBody
+//		public String getState(HttpServletRequest request, HttpSession session) {
+//			String date = request.getParameter("date");		
+//			String code = (String)session.getAttribute("loggedCode");
+//			
+////			System.out.println("date="+date);
+////			System.out.println("code="+code);
+//			attendDto.setCode(code);
+//			attendDto.setAttendDate(date);
+//			
+//			attendDto = attendDao.getState(attendDto);	
+//			String state = attendDto.getState();
+//			System.out.println("state="+state);
+//			
+//			return state;	    
+//		}
 }

@@ -159,5 +159,18 @@ public class AttendDao implements AttendService{
 		return 0;
 	}
 
+	@Override
+	public AttendDto getState(AttendDto _attendDto) {
+
+		System.out.println("attendDto="+_attendDto);
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		attendDto = sqlSession.selectOne("getState",_attendDto);
+
+		System.out.println("attendDto="+attendDto);
+		
+        sqlSession.close();
+		return attendDto;
+	}
+
 	
 }

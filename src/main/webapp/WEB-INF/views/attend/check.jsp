@@ -4,12 +4,11 @@
 
 <main>
 	<div class="contents">
-		<div class="title">
-			<h2 class="subTitle">check</h2>
-		</div>
 		<div id="inner">
+			<div class="title">
+				<h2 class="subTitle">check</h2>
+			</div>
 			<!-- 데이터 받아서 처리하기....forward방식으로 데이터 보여주기....  -->
-			<input  type="hidden" name="code" value="${param.code }">
 			<table class="left">
 				<colgroup>
 					<col style="width: 50%">
