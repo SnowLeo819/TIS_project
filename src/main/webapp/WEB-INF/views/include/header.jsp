@@ -58,7 +58,7 @@
                         <ul>
                            <li><a href="../attend/Attend.do">출결관리</a></li>
                            <li><a href="../board/List.do">게시판</a></li>
-                           <li><a href="../">강의일정(x)</a></li>
+                           <li><a href="../lecture/Main.do">강의일정</a></li>
                            <li><a href="../manager/ManageList.do">원생관리</a></li>
                         </ul>
                      </nav>
@@ -77,7 +77,7 @@
                         <ul>
                            <li><a href="../attend/Attend.do">출결관리</a></li>
                            <li><a href="../board/List.do">게시판</a></li>
-                           <li><a href="../">강의일정(x)</a></li>
+                           <li><a href="../lecture/Main.do">강의일정</a></li>
                         </ul>
                      </nav>
                      <div class="topMenu">
@@ -87,7 +87,6 @@
                         </ul>
                      <div>
                   </c:when>
-                  
                   <c:otherwise>
                   <h1>
                         <a href="../lecture/Main.do">출결관리시스템</a>

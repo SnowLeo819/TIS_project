@@ -76,8 +76,7 @@ public class AttendController {
 		
 		result = attendDao.AttendCheck(attendDto);
 		if(result > 0) {
-			if(position.equals("S")) ScriptWriter.alertAndNext(response, "정상출석", "../lecture/Main.do");
-			ScriptWriter.alertAndNext(response, "정상출석", "../board/List.do");
+			ScriptWriter.alertAndNext(response, "정상출석", "../lecture/Main.do");
 		} else {
 			ScriptWriter.alertAndBack(response, "다시시도 ㄱㄱ..");
 		}
@@ -99,8 +98,7 @@ public class AttendController {
 	      if(judge >= 1) attendDto.setState("출석");
 	      result = attendDao.AttendOut(attendDto);
 	      if(result > 0) {
-	    	 if(position.equals("S")) ScriptWriter.alertAndNext(response, "정상퇴실", "../lecture/Main.do");
-	         ScriptWriter.alertAndNext(response, "정상퇴실", "../board/List.do");
+	    	 ScriptWriter.alertAndNext(response, "정상퇴실", "../lecture/Main.do");
 	      } else {
 	         ScriptWriter.alertAndBack(response, "다시시도 ㄱㄱ..");
 	      }

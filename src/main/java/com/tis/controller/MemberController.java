@@ -41,7 +41,9 @@ public class MemberController {
 
 		logmemberDto = memberDao.isRegistered(memberDto);
 		System.out.println(logmemberDto);
-		if (logmemberDto != null) {
+		if (logmemberDto == null){
+			ScriptWriter.alertAndBack(response, "아이디와 비밀번호를 확인 해주세요!");
+		} else {
 			String temp = logmemberDto.getCode();
 			logmemberDto.setPosition(temp.substring(0, 1));
 			String position = logmemberDto.getPosition();
@@ -56,13 +58,12 @@ public class MemberController {
 			if (position.equals("M")) {
 				ScriptWriter.alertAndNext(response, logmemberDto.getName() + " 관리자님 환영합니다.",
 						"../manager/ManageList.do");
+			} else if (position.equals("T")) {
+				ScriptWriter.alertAndNext(response, logmemberDto.getName() + "님 환영합니다.", "../attend/Attend.do");
 			} else {
 				ScriptWriter.alertAndNext(response, logmemberDto.getName() + "님 환영합니다.", "../lecture/Main.do");
 			}
-		} else {
-			ScriptWriter.alertAndBack(response, "아이디와 비밀번호를 확인 해주세요!");
 		}
-
 	}
 
 	@RequestMapping("/Logout.do")

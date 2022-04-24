@@ -169,8 +169,31 @@ $(".calendar").on("click", ".dates ul .dateBox", function () {
         console.log("item==" + item);
         output += `
                   <tr class="item${idx}">
-                    <td>${item.contents}</td>
-                    <td>${item.subject}</td>
+                    <td>${item.contents}</td>`;
+        switch (item.subject) {
+          case "first":
+            output += `<td>프론트엔드 개발자 양성과정</td>`;
+            break;
+          case "second":
+            output += `<td>백엔드 개발자 양성과정</td>`;
+            break;
+          case "third":
+            output += `<td>풀스택 개발자 양성과정</td>`;
+            break;
+          case "fourth":
+            output += `<td>퍼블리셔 양성과정</td>`;
+            break;
+          case "fifth":
+            output += `<td>인공지능 개발자 양성과정</td>`;
+            break;
+          case "sixth":
+            output += `<td>데이터 엔지니어 양성과정</td>`;
+            break;
+          default:
+            output += `<td> - </td>`;
+            break;
+        }
+        output += `</td>
                     <td>${item.teacher}</td>
                   </tr>
                   `;

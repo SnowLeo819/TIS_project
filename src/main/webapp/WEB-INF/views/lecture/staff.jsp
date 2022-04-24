@@ -10,7 +10,15 @@ pageEncoding="UTF-8"%> <%@ include file="../include/header.jsp"%>
       <ul class="itemList">
         <li class="item">
           <div class="title">
-            <span>출석률</span>
+            <span>출석률(당일)</span>
+          </div>
+          <div class="info">
+            <span class="txt"><span class="point"> ${attendRate} </span>%</span>
+          </div>
+        </li>
+        <li class="item">
+          <div class="title">
+            <span>출석률(강의)</span>
           </div>
           <div class="info">
             <span class="txt"><span class="point"> ${attendRate} </span>%</span>
@@ -26,25 +34,12 @@ pageEncoding="UTF-8"%> <%@ include file="../include/header.jsp"%>
         </li>
         <li class="item">
           <div class="title">
-            <span>입실</span>
+            <span>오늘 일정</span>
           </div>
           <div class="info">
-            <span class="txt ${attNull?"hidden":""}"><span class="point"> ${isNull?"":attendTime} </span></span>
-            <a class="btn btnConfirm ${attNull?"":"hidden"}" href="../attend/AttendCheckProcess.do">입실</a>
-          </div>
-        </li>
-        <li class="item">
-          <div class="title">
-            <span>퇴실</span>
-          </div>
-          <div class="info">
-						<c:if test="${attNull}">
-              <span class="point">입실 전</span>
-						</c:if>	
-						<c:if test="${!attNull}">
-              <span class="txt ${leaNull?"hidden":""}"><span class="point"> ${leaNull?"":leaveTime}</span></span>
-              <a class="btn btnConfirm ${leaNull?"":"hidden"}" href="../attend/AttendOutProcess.do">퇴실</a>
-						</c:if>	
+            <ul>
+            <li><span class="txt"><span class="point">시험감독</span></span></li>
+            </ul>
           </div>
         </li>
       </ul>
@@ -97,12 +92,12 @@ pageEncoding="UTF-8"%> <%@ include file="../include/header.jsp"%>
     <button class="topClose">
       <span class="material-icons">close</span>
     </button>
-    <div class="form detail">
+    <div class="form detail dtList">
       <table>
         <colgroup>
-          <col style="width: 150px" />
-          <col style="width: 50px" />
-          <col style="width: 50px" />
+          <col style="width: 35%" />
+          <col style="width: 50%" />
+          <col style="width: 15%" />
         </colgroup>
         <thead>
           <tr>
@@ -120,9 +115,51 @@ pageEncoding="UTF-8"%> <%@ include file="../include/header.jsp"%>
         </tbody>
       </table>
       <div class="btns">
-        <button class="btn close">닫기</button>
+        <button class="btn close btnCancel">닫기</button>
+        <button class="btn btnConfirm">추가</button>
+      </div>
+    </div>
+    <div class="form detailInput">
+      <table>
+        <colgroup>
+          <col style="width: 20%" />
+          <col style="width: 80%" />
+        </colgroup>
+        <tbody>
+          <tr>
+            <th>제목</th>
+            <td class="left">
+              <input type="text" name="title" id="title" placeholder="제목을 입력하세요." />
+            </td>
+          </tr>
+          <tr>
+            <th>과목</th>
+            <td class="left">
+              <select name="subject" id="subject">
+                <option value="" ${item.subject == "" ? selected : ""}>전체</option>
+                <option value="first" ${item.subject == "first" ? selected : ""}>프론트엔드 개발자 양성과정</option>
+                <option value="second" ${item.subject == "second" ? selected : ""}>2강의실: 백엔드 개발자 양성과정</option>
+                <option value="third" ${item.subject == "third" ? selected : ""}>3강의실: 풀스택 개발자 양성과정</option>
+                <option value="fourth" ${item.subject == "fourth" ? selected : ""}>4강의실: 퍼블리셔 양성과정</option>
+                <option value="fifth" ${item.subject == "fifth" ? selected : ""}>5강의실: 인공지능 개발자 양성과정</option>
+                <option value="sixth" ${item.subject == "sixth" ? selected : ""}>6강의실: 데이터 엔지니어 양성과정</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th>내용</th>
+            <td class="left">
+              <input type="text" name="contents" id="contents" placeholder="세부내용을 입력하세요." />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="btns">
+        <button class="btn btnConfirm">저장</button>
+        <button class="btn close btnCancel">닫기</button>
       </div>
     </div>
   </div>
 </main>
+
 <%@ include file="../include/footer.jsp"%>

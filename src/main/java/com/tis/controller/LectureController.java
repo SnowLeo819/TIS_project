@@ -50,6 +50,8 @@ public class LectureController {
 	@GetMapping("Main.do")
 	public String main(HttpSession session, Model model) throws ParseException {
 		String loggedCode = (String)session.getAttribute("loggedCode");
+		MemberDto member = (MemberDto)session.getAttribute("loggedMember");
+		String subject = member.getSubject();
 		
 		String startDay = "20220401";	
 		String endDay = "20220426";
@@ -91,8 +93,14 @@ public class LectureController {
 		model.addAttribute("leaveTime", leaveTime);
 		model.addAttribute("attendRate", roundRate);
 		model.addAttribute("Dday", Dday);
+		model.addAttribute("subject", subject);
 		
-		return "lecture/student";
+		String position = (String)session.getAttribute("loggedPosition");
+		if(position.equals("S")) {
+			return "lecture/student";	
+		} else {
+			return "lecture/staff";	
+		}
 	}
 	
 	// ajax 받음
