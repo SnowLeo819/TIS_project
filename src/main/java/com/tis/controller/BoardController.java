@@ -1,6 +1,8 @@
 package com.tis.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,11 +13,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tis.model.BoardDto;
 import com.tis.model.BoardService;
 import com.tis.model.MemberDto;
 import com.tis.model.MemberService;
+import com.tis.model.ReplyDto;
+import com.tis.model.ReplyService;
 import com.tis.util.PageWriter;
 import com.tis.util.ScriptWriter;
 
@@ -30,6 +35,12 @@ public class BoardController {
 	
 	@Autowired
 	BoardDto boardDto;
+	
+	@Autowired
+	ReplyDto replyDto;
+	
+	@Autowired
+	ReplyService replyDao;
 		
 	@GetMapping("/List.do")
 	public String list(HttpServletRequest request, Model model) {
@@ -123,6 +134,10 @@ public class BoardController {
 		// 게시글 정보 가져오기
 		boardDto = boardDao.getSelectOne(no);
 		
+		// 댓글리스트 가져오기
+		List<ReplyDto> replyList = replyDao.getReplyList(no);
+		System.out.println(replyList.toString());
+		
 		// 앞뒤글 정보 가져오기
 		int prevNum = num - 1;
 		int nextNum = num + 1;
@@ -136,6 +151,7 @@ public class BoardController {
 		model.addAttribute("search_select",search_select);
 		model.addAttribute("search_word",search_word);
 		model.addAttribute("cate_select",cate_select);
+		model.addAttribute("replyList",replyList);
 		
 		// 페이지 연결
 		return "board/view"; 
@@ -218,4 +234,24 @@ public class BoardController {
 			ScriptWriter.alertAndBack(response, "시스템 오류입니다. 잠시 후 다시 시도해 주세요");
 		}
 	}
+	
+	@RequestMapping("/ReplyDelete.do")
+	@ResponseBody
+	public Map<String, Object> replyDelete(int no,String code, int boardNo){
+		Map<String, Object> turnData = new HashMap<>();
+		int result= 0;
+		
+		replyDto.setNo(no);
+		replyDto.setCode(code);
+
+		result = replyDao.deleteReply(replyDto);
+		List<ReplyDto> replyList = replyDao.getReplyList(boardNo);
+				
+		turnData.put("result", result);
+		turnData.put("replyList", replyList);
+		
+		return turnData;
+	}
+	
+	
 }

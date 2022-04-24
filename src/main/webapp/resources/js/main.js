@@ -153,3 +153,17 @@ $("#now_date").on("change", function () {
 // } else if (test == false) {
 //   histohistory.back();
 // }
+
+// 댓글 삭제
+//ReplyDelete.do
+$(".comment td .replyList").on("click", function () {
+  // let no = $(".replyList .replyItem").data("idx");
+  // let code = $(".replyList .replyItem").data("code");
+  // console.log("삭제눌렀어 / ", "no=", no, "code=", code);
+  console.log("삭제눌렀어");
+});
+
+// 댓글 입력
+$(".comment .left .inputBox button").on("click", function () {
+  console.log("입력눌렀어");
+});

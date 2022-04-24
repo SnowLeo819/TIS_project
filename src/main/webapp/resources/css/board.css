@@ -2,15 +2,33 @@
 
 .board #boardContents th, .board #boardContents td { height: 300px; }
 
-.board #comment td { vertical-align: middle; }
+.board .comment td { vertical-align: middle; }
 
-.board #comment .inputBox { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; height: 100%; }
+.board .comment td button { padding: 5px; height: 40px; width: 40px; background-color: #666; text-align: center; }
 
-.board #comment .inputBox #reply { min-height: 100px; }
+.board .comment td button span { color: #fff; font-size: 18px; }
 
-.board #comment .inputBox button { height: 100px; background-color: #666; }
+.board .comment td .inputBox { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; height: 100%; }
 
-.board #comment .inputBox button span { color: #fff; }
+.board .comment td .inputBox #reply { min-height: 100px; }
+
+.board .comment td .inputBox button { height: 100px; width: 50px; }
+
+.board .comment td .replyList { margin: 0; }
+
+.board .comment td .replyList .replyItem { width: 100%; display: -webkit-inline-box; display: -ms-inline-flexbox; display: inline-flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; margin: 5px; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+
+.board .comment td .replyList .replyItem .replyBox { display: -webkit-inline-box; display: -ms-inline-flexbox; display: inline-flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; margin-right: 10px; width: calc(100% - 100px); }
+
+.board .comment td .replyList .replyItem .replyBox span { width: calc(20% - 5px); font-weight: 500; padding: 0 5px; text-align: center; }
+
+.board .comment td .replyList .replyItem .replyBox span.name { font-weight: 700; }
+
+.board .comment td .replyList .replyItem .replyBox span.txt { width: 60%; text-align: left; }
+
+.board .comment td .replyList .replyItem .replyBox span.date { color: #999; }
+
+.board .comment td .replyList .replyItem .btns { margin: 0; }
 
 .board tr { border-bottom: 1px solid #d9d9d9; }
 

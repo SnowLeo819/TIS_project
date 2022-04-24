@@ -11,8 +11,9 @@
 		<typeAlias type="com.tis.model.MemberDto" alias="MemberDto" />
 		<typeAlias type="com.tis.model.BoardDto" alias="BoardDto" />
 		<typeAlias type="com.tis.model.AttendDto" alias="AttendDto" />
-		<typeAlias type="com.tis.model.LectureDto"
+		<typeAlias type="com.tis.model.LectureDto" 
 			alias="LectureDto" />
+		<typeAlias type="com.tis.model.ReplyDto" alias="ReplyDto" />
 	</typeAliases>
 
 </configuration>

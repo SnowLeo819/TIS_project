@@ -38,6 +38,9 @@
 							<c:if test="${member.position eq 'F' }">
 								<td>직원</td>
 							</c:if>
+							<c:if test="${member.position eq 'M' }">
+								<td>관리자</td>
+							</c:if>
 						</tr>
 						<tr>
 							<th>이름</th>

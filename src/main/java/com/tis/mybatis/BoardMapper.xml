@@ -82,4 +82,22 @@
 		WHERE NUM = #{targetNum}
 	</select>
 	
+	
+	<!-- reply 쿼리 -->
+	<select id="getReplyList" parameterType="Integer" resultType="ReplyDto">
+		SELECT NO,BOARDID,NAME,CODE,TXT,TO_CHAR(REGDATE,'YYYY-MM-DD') AS REGDATE FROM REPLY WHERE BOARDID = #{no}
+	</select>
+	
+	<select id="getReply" parameterType="Integer" resultType="ReplyDto">
+		SELECT * FROM REPLY WHERE NO = #{no}
+	</select>
+	
+	<insert id="insertReply" parameterType="ReplyDto">
+		INSERT INTO REPLY VALUES (SEQ_REPLY.NEXTVAL,#{boardId},#{name},#{code},SYSDATE);
+	</insert>
+	
+	<insert id="deleteReply" parameterType="ReplyDto">
+		DELETE * FROM REPLY WHERE NO = #{no} AND CODE =#{code} 
+	</insert>
+		
 </mapper>

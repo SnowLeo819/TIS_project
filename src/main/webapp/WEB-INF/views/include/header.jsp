@@ -29,8 +29,8 @@
 <link rel="stylesheet" href="../css/member.css" />
 <link rel="stylesheet" href="../css/manager.css" />
 <script src="../js/jquery-3.6.0.min.js"></script>
-<script src="../js/main.js" defer></script>
 <script src="../js/gsap/gsap.min.js"></script>
+<script src="../js/main.js" defer></script>
 </head>
 <body>
    <header id="header">

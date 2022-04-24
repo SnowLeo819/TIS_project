@@ -9,7 +9,7 @@
 				<h2 class="subTitle">VIEW</h2>
 			</div>
 			<!-- 데이터 받아서 처리하기....forward방식으로 데이터 보여주기....  -->
-			<div class="form board" >
+			<div class="form board" >    
 				<table class="left">
 					<colgroup>
 						<col style="width: 150px" />
@@ -38,18 +38,38 @@
 							<th>내용</th>
 							<td colspan="3" class="left">${boardDto.contents }</td>
 						</tr>
-						<tr>
+						<tr class="comment">
 							<th>댓글</th>
-							<td colspan="3" class="left">댓글내용 가져오기//</td>
+							<td colspan="3" class="left">
+								<ul class="replyList" id="replyList">
+									<c:forEach items="${replyList }" var="replyDto" varStatus="loop" begin="0">
+										<li class="replyItem" data-idx="${replyDto.no }" data-code="${replyDto.code}">
+											<div class="replyBox">
+												<span class="name">${replyDto.name }</span>
+												<span class="txt">${replyDto.txt }</span>
+												<span class="date">${replyDto.regDate }</span>
+											</div>
+											<div class="btns">
+												<button type="button" class="btn sticker" id="update">
+													<span class="material-icons">edit</span>
+												</button>
+												<button type="button" class="btn sticker" id="delete">
+													<span class="material-icons">delete</span>
+												</button>
+											</div>											
+										</li>
+									</c:forEach>
+								</ul>
+							</td>
 						</tr>
-						<tr id="comment">
+						<tr class="comment">
 							<th>댓글 입력</th>
 							<td colspan="3" class="left">
-							  <div class="inputBox">
-								<textarea id="reply" placeholder="내용을 입력하세요." style="width: calc(100% - 60px)"></textarea>
-								<button type="button" class="btn sticker">
-									<span class="material-icons">edit</span>
-								</button>
+								<div class="inputBox">
+									<textarea id="reply" placeholder="내용을 입력하세요." style="width: calc(100% - 60px)"></textarea>
+									<button type="button" class="btn sticker">
+										<span class="material-icons">edit</span>
+									</button>
 								</div>
 							</td>
 						</tr>
