@@ -2,7 +2,9 @@ package com.tis.controller;
 
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -51,7 +53,7 @@ public class LectureController {
 	public String main(HttpSession session, Model model) throws ParseException {
 		String loggedCode = (String)session.getAttribute("loggedCode");
 		MemberDto member = (MemberDto)session.getAttribute("loggedMember");
-		String subject = member.getSubject();
+		String subject = member.getSubject().trim();
 		
 		String startDay = "20220401";	
 		String endDay = "20220426";
@@ -86,6 +88,7 @@ public class LectureController {
 		}
 //		System.out.println(attendTime);
 //		System.out.println(leaveTime);
+		System.out.println(subject);
 		
 		model.addAttribute("attNull", attNull);
 		model.addAttribute("leaNull", leaNull);
@@ -138,4 +141,38 @@ public class LectureController {
 				
 		return lectureList;
 	}
+	
+	@RequestMapping("/InsertLecture.do")
+	@ResponseBody
+	public Map<String, Object> insertLecture(HttpServletRequest request, HttpSession session) {
+		Map<String, Object> turnData = new HashMap<>();
+		List<LectureDto> lectureList = new ArrayList<>();
+		int result= 0;
+		
+		String loggedCode = (String)session.getAttribute("loggedCode");
+		MemberDto memberDto = memberDao.getSelectOne(loggedCode);
+		
+		String subject = request.getParameter("subject");
+		String selectDate = request.getParameter("selectDate");
+		String contents = request.getParameter("contents");
+		String teacher = memberDto.getName();
+		
+		System.out.println(subject+" / "+teacher+" / "+selectDate);
+		
+		lectureDto.setSubject(subject);
+		lectureDto.setTeacher(teacher);
+		lectureDto.setContents(contents);
+		lectureDto.setSelectDate(selectDate);	
+		
+		result = lectureDao.insertLecture(lectureDto);
+		lectureList = lectureDao.getDateLecture(lectureDto);
+
+		System.out.println(result+" / "+lectureList);
+		
+		turnData.put("result", result);
+		turnData.put("lectureList", lectureList);
+				
+		return turnData;
+	}
+	
 }

@@ -70,31 +70,13 @@ function makeCalendar(pYear, pMonth) {
       } else {
         output += `<li class="dateBox ${firstDay.getFullYear()}.${firstDay.getMonth() + 1}.${count}" data-date="${count}" data-year="${firstDay.getFullYear()}" data-month="${firstDay.getMonth() + 1}">
                     <div class="topBox">
-                      <span>${count}</span>`;
+                      <span>${count}</span>
+                      </div>`;
       }
 
       let date = `${firstDay.getFullYear()}${addZero(firstDay.getMonth() + 1)}${addZero(count)}`;
       let dateList = [];
       console.log(date);
-
-      // // // 해당일 출석여부를 가져오는 ajax  완성 못하면 삭제하기.//
-      // $.ajax({
-      //   url: "../attend/GetState.do",
-      //   type: "GET",
-      //   async: false, // 기존 비동기 방식 -> 동기방식으로 전환해줌!! 안하면 밀려서 오류남;;
-      //   data: {
-      //     date: date,
-      //   },
-      //   success: function (res) {
-      //     console.log(res.state);
-      //     if (res.length > 0) {
-      //       output += `<span>${state}</span>
-      //                 </div>`;
-      //     }
-      //   },
-      // });
-
-      output += `</div>`;
 
       // 해당일 강의일정 안내를 가져오는 ajax
       $.ajax({
@@ -138,14 +120,21 @@ function addZero(num) {
   }
 }
 
+let selectedDay;
+let dateSelect;
+
 // 달력 누르면 모달...
 $(".calendar").on("click", ".dates ul .dateBox", function () {
   let date = addZero($(this).data("date"));
   let year = addZero($(this).data("year"));
   let month = addZero($(this).data("month"));
   // console.log("눌렀어 / ", year, month, date);
-
   let data = year + month + date;
+
+  selectedDay = data; // 입력 및 수정에 사용
+  dateSelect = $(this).data("year") + "." + $(this).data("month") + "." + $(this).data("date");
+  console.log(dateSelect);
+
   console.log("눌렀어 /", data);
   const dateBody = $("#detailBox .dtList table tbody");
   $.ajax({
@@ -160,9 +149,21 @@ $(".calendar").on("click", ".dates ul .dateBox", function () {
       const list = res;
       dateBody.html("");
       output = "";
-      console.log(list.length);
+      // console.log(list.length);
       if (list.length <= 0) {
         alert("강의정보가 없습니다!");
+        $("body").addClass("overHidden");
+        $("#detailBox").show();
+        $("#detailBox .detail").toggleClass("hidden");
+        gsap.fromTo(
+          "#detailBox .detail",
+          { top: "-100%" },
+          {
+            top: "50%",
+            ease: "ease",
+            duration: 1,
+          }
+        );
         return;
       }
       list.forEach(function (item, idx) {
@@ -245,16 +246,79 @@ $("#detailBox .close").on("click", function () {
 });
 
 $("#detailBox .insert").on("click", function () {
-  let title = $(".dtInput #title").val("");
-  let subject = $(".dtInput #subject").val("");
-  let contents = $(".dtInput #contents").val("");
+  // let title = $(".dtInput #title").val();
+  let subject = $(".dtInput #subject").val();
+  let contents = $(".dtInput #contents").val();
 
-  console.log("저장 눌럿따", title, subject, contents);
+  console.log("저장 눌럿따", subject, contents, selectedDay);
+  if (subject == "") {
+    alert("과목값을 입력해주세yo");
+    return;
+  }
+  $.ajax({
+    url: "../lecture/InsertLecture.do",
+    type: "POST",
+    async: false,
+    data: {
+      // title: title,
+      subject: subject,
+      contents: contents,
+      selectDate: selectedDay,
+    },
+    success: function ({ result, lectureList }) {
+      dateBody.html("");
+      console.log(result, lectureList);
+      output = "";
+      outList = "";
+      if (result <= 0) {
+        alert("오류발생.. 잠시후 다시 시도해주세요.");
+        return;
+      }
+      lectureList.forEach(function (item, idx) {
+        outList += `<li class="item"><p>${item.contents}</p></li>`;
+        output += `
+        <tr class="item${idx}">
+          <td>${item.contents}</td>`;
+        switch (item.subject) {
+          case "first":
+            output += `<td>프론트엔드 개발자 양성과정</td>`;
+            break;
+          case "second":
+            output += `<td>백엔드 개발자 양성과정</td>`;
+            break;
+          case "third":
+            output += `<td>풀스택 개발자 양성과정</td>`;
+            break;
+          case "fourth":
+            output += `<td>퍼블리셔 양성과정</td>`;
+            break;
+          case "fifth":
+            output += `<td>인공지능 개발자 양성과정</td>`;
+            break;
+          case "sixth":
+            output += `<td>데이터 엔지니어 양성과정</td>`;
+            break;
+          default:
+            output += `<td> - </td>`;
+            break;
+        }
+        output += `</td>
+          <td>${item.teacher}</td>
+        </tr>
+        `;
+      });
+    },
+  });
+  let dateCellUl = $(dateSelect).find("txtList");
+  dateCellUl.html(outList);
+  console.log(outList);
+  dateBody.html(output);
+  $("#detailBox .detail").toggleClass("hidden");
 });
 
 $("#detailBox .toggle ").on("click", function () {
   console.log("전환 눌렀다");
-  $(".dtInput input").val("");
+  // $(".dtInput input").val("");
   $(".dtInput textarea").val("");
   $("#detailBox .detail").toggleClass("hidden");
 });

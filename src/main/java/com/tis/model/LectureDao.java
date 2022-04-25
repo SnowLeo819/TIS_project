@@ -18,8 +18,13 @@ public class LectureDao implements LectureService{
 
 	@Override
 	public int insertLecture(LectureDto lectureDto) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = 0;
+		
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		result = sqlSession.insert("insertLecture",lectureDto);
+		
+		sqlSession.close();		
+		return result;
 	}
 
 	@Override

@@ -126,23 +126,23 @@ pageEncoding="UTF-8"%> <%@ include file="../include/header.jsp"%>
           <col style="width: 80%" />
         </colgroup>
         <tbody>
-          <tr>
+          <%-- <tr>
             <th>제목</th>
             <td class="left">
               <input type="text" name="title" id="title" placeholder="제목을 입력하세요." />
             </td>
-          </tr>
+          </tr> --%>
           <tr>
             <th>과목</th>
             <td class="left">
               <select name="subject" id="subject">
-                <option value="" ${item.subject == "" ? selected : ""}>전체</option>
-                <option value="first" ${item.subject == "first" ? selected : ""}>프론트엔드 개발자 양성과정</option>
-                <option value="second" ${item.subject == "second" ? selected : ""}>백엔드 개발자 양성과정</option>
-                <option value="third" ${item.subject == "third" ? selected : ""}>풀스택 개발자 양성과정</option>
-                <option value="fourth" ${item.subject == "fourth" ? selected : ""}>퍼블리셔 양성과정</option>
-                <option value="fifth" ${item.subject == "fifth" ? selected : ""}>인공지능 개발자 양성과정</option>
-                <option value="sixth" ${item.subject == "sixth" ? selected : ""}>데이터 엔지니어 양성과정</option>
+                <option value="" ${subject eq "" or subject eq null? selected : ""}>전체</option>
+                <option value="first" ${subject eq "first" ? selected : ""}>프론트엔드 개발자 양성과정</option>
+                <option value="second" ${subject eq "second" ? selected : ""}>백엔드 개발자 양성과정</option>
+                <option value="third" ${subject eq "third" ? selected : ""}>풀스택 개발자 양성과정</option>
+                <option value="fourth" ${subject eq "fourth" ? selected : ""}>퍼블리셔 양성과정</option>
+                <option value="fifth" ${subject eq "fifth" ? selected : ""}>인공지능 개발자 양성과정</option>
+                <option value="sixth" ${subject eq "sixth" ? selected : ""}>데이터 엔지니어 양성과정</option>
               </select>
             </td>
           </tr>

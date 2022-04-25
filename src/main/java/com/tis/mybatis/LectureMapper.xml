@@ -6,7 +6,7 @@
 		INSERT INTO LECTURE VALUES (SEQ_LECTURE.NEXTVAL,
 										#{subject},
 										#{teacher},
-										TRUNC(#{selectDate},'dd'),
+										TO_DATE(#{selectDate}, 'yyyy-mm-dd'),
 										#{contents}
 										)
 	</insert>
@@ -24,6 +24,8 @@
 		UPDATE ATTEND SET SUBJECT = #{subject},TEACHER = #{teacher}, TRUNC(#{selectDate},'dd'), CONTENTS = #{contents} WHERE no = #{no}
 	</update>
 
+
+	<!-- 날짜관련.. -->
 	<select id="getDay" parameterType="HashMap" resultType="Integer">
 		SELECT TO_DATE(#{endDay}) - TO_DATE(#{startDay}) from dual
 	</select>
