@@ -22,7 +22,7 @@
 								<select name="category">
 									<option value="notice"   ${boardDto.category=="notice"?"selected":"" }>공지사항</option>
 									<option value="question" ${boardDto.category=="question"?"selected":"" }>질의문답</option>
-									<option value="etc" ${boardDto.category=="etc"?"selected":"" }>기타암거</option>
+									<option value="etc" ${boardDto.category=="etc"?"selected":"" }>기타문의</option>
 								</select>
 							</td>
 						</tr>

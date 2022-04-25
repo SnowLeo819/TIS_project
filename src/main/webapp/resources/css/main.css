@@ -30,6 +30,16 @@ body .overHidden { overflow: hidden; height: 100%; }
 
 .attend #top .itemList .item { background-color: #fff; width: calc(25% - 4px); height: 150px; padding: 0; }
 
+.attend #top .itemList .item#task { overflow: hidden; }
+
+.attend #top .itemList .item#task .info { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; }
+
+.attend #top .itemList .item#task .info li { height: 30px; line-height: 30px; }
+
+.attend #top .itemList .item#task .info span { font-size: 16px; }
+
+.attend #top .itemList .item#task .info .point { font-size: 16px; }
+
 .attend #top .itemList .item .title { height: 50px; width: 100%; margin: 0; background-color: #d04040; line-height: 50px; text-align: center; }
 
 .attend #top .itemList .item .title span { width: 100%; color: #fff; font-size: 18px; font-weight: 700; }

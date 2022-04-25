@@ -12,6 +12,7 @@
       <!-- 데이터 받아서 처리하기....forward방식으로 데이터 보여주기....  -->
       <form method="POST" action="../member/EditProcess.do" id="editmypage" class="form" enctype="multipart/form-data">
         <table class="left">
+					<caption><span class="caution">※ 아이디, 비밀번호 변경은 삭제 후 재가입 해야합니다.</span></caption>
           <colgroup>
             <col style="width: 20%" />
             <col style="width: 80%" />
@@ -21,16 +22,6 @@
               <th>아이디</th>
               <td><input type="text" name="id" id="user_id" value="${member.id}" readonly /></td>
             </tr>
-            <tr>
-              <th>패스워드</th>
-              <td><input type="password" name="password" id="user_pw" /></td>
-            </tr>
-            <%--학생한테 안 보여도 될 거 같아서 일단 주석처리 해놨습니다.
-            <tr>
-              <th>식별코드</th>
-              <td><input type="text" name="code" id="user_code" value="${member.code}" readonly /></td>
-            </tr>
-            --%>
             <tr>
               <th>이름</th>
               <td><input type="text" name="name" id="user_name" value="${member.name}" /></td>
@@ -118,6 +109,10 @@
                   </c:if>
                 </select>
               </td>
+            </tr>
+            <tr>
+              <th>비밀번호 확인</th>
+              <td><input type="password" name="password" id="user_pw" /></td>
             </tr>
           </tbody>
         </table>

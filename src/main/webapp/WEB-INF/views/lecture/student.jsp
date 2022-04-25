@@ -21,7 +21,7 @@ pageEncoding="UTF-8"%> <%@ include file="../include/header.jsp"%>
             <span>종강일</span>
           </div>
           <div class="info">
-            <span class="txt"><span class="point">D - ${Dday==0?Day:Dday}</span></span>
+            <span class="txt">종강까지 <span class="point">D - ${Dday==0?Day:Dday}</span></span>
           </div>
         </li>
         <li class="item">
@@ -97,7 +97,7 @@ pageEncoding="UTF-8"%> <%@ include file="../include/header.jsp"%>
     <button class="topClose">
       <span class="material-icons">close</span>
     </button>
-    <div class="form detail">
+    <div class="form detail dtList">
       <table>
         <colgroup>
           <col style="width: 150px" />

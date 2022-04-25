@@ -9,7 +9,11 @@
 
 <!-- 과목출석현황 -->
 <select id="getAllAttend" parameterType="String" resultType="AttendDto">
-   SELECT * FROM ATTEND WHERE subject = #{subject}
+	SELECT * FROM ATTEND
+		<if test="subject != null or subject != ''">
+			WHERE SUBJECT LIKE '%' || #{subject} || '%'
+		</if>
+	ORDER BY SUBJECT DESC
 </select>
 
 <!-- 과목출석현황(당일) -->
@@ -49,7 +53,7 @@
 	
 <!-- 날짜리스트 -->
 	<select id="selectDate" parameterType="String" resultType="AttendDto">
-		 SELECT NO, CODE, NAME, SUBJECT, TO_CHAR(ATTENDDATE, 'yyyy-mm-dd') AS ATTENDDATE,TO_CHAR(attendtime, 'hh:mm:ss') as attendtime, TO_CHAR(leavetime, 'hh:mm:ss') as leavetime, state FROM ATTEND WHERE ATTENDDATE = to_date(#{attendDate},'yyyy-MM-dd')
+		 SELECT NO, CODE, NAME, SUBJECT, TO_CHAR(ATTENDDATE, 'yyyy-mm-dd') AS ATTENDDATE,TO_CHAR(attendtime, 'hh:mm:ss') as attendtime, TO_CHAR(leavetime, 'hh:mm:ss') as leavetime, state FROM ATTEND WHERE ATTENDDATE = to_date(#{attendDate},'yyyy-MM-dd') ORDER BY SUBJECT DESC
 	</select>		
 
 <!--출결시간차-->

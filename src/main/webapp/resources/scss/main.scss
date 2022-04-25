@@ -64,6 +64,24 @@ body {
         width: calc(25% - 4px);
         height: 150px;
         padding: 0;
+        &#task {
+          overflow: hidden;
+          .info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            li {
+              height: 30px;
+              line-height: 30px;
+            }
+            span {
+              font-size: 16px;
+            }
+            .point {
+              font-size: 16px;
+            }
+          }
+        }
         .title {
           height: 50px;
           width: 100%;

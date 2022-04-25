@@ -23,9 +23,9 @@
 <link href="../summernote/summernote.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="../css/layout.css" />
 <link rel="stylesheet" href="../css/board.css" />
-<link rel="stylesheet" href="../css/calendar.css" />
 <link rel="stylesheet" href="../css/form.css" />
-<link rel="stylesheet" href="../css/student.css" />
+<link rel="stylesheet" href="../css/calendar.css" />
+<link rel="stylesheet" href="../css/main.css" />
 <link rel="stylesheet" href="../css/member.css" />
 <link rel="stylesheet" href="../css/manager.css" />
 <script src="../js/jquery-3.6.0.min.js"></script>

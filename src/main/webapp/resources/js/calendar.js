@@ -37,6 +37,7 @@ makeCalendar(pickedNow.getFullYear(), pickedNow.getMonth());
 function makeCalendar(pYear, pMonth) {
   //윤년 공식 4로 떨어지면 윤년,100년 단위는 윤년 아님, 400으로 떨어지면 윤년
   let output = "";
+  let ulOutput = "";
   let count = 1;
   firstDay = new Date(pYear, pMonth, 1);
   txtYear.text(firstDay.getFullYear());
@@ -96,6 +97,9 @@ function makeCalendar(pYear, pMonth) {
       if (dateList != null && dateList.length > 0) {
         output += `<div class="txtBox"><ul class="txtList">`;
         dateList.forEach(function (item, idx) {
+          if (today.getDate() === count && today.getFullYear() === firstDay.getFullYear() && today.getMonth() === firstDay.getMonth()) {
+            ulOutput += `<li><span class="point">${item.contents}</span></li>`;
+          }
           output += `<li class="item"><p>${item.contents}</p></li>`;
         });
         output += `</ul></div>`;
@@ -106,6 +110,11 @@ function makeCalendar(pYear, pMonth) {
     if (count > selectYear[firstDay.getMonth()]) {
       break; // 반목문이 break를 만나면 종료
     }
+  }
+  const topUl = $("#task .info");
+  if (ulOutput != "") {
+    topUl.html("");
+    topUl.html(ulOutput);
   }
   dateUL.html(output);
   // gsap.from(".calendar .dates li", { scale: 0, ease: "power3", stagger: 0.02 });

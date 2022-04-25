@@ -8,38 +8,28 @@ pageEncoding="UTF-8"%> <%@ include file="../include/header.jsp"%>
     <div id="top">
       <!-- prog_list -->
       <ul class="itemList">
-        <li class="item">
+        <li class="item" style="width: calc(33.3% - 4px);">
           <div class="title">
-            <span>출석률(당일)</span>
+            <span>학생 출석률</span>
           </div>
           <div class="info">
             <span class="txt"><span class="point"> ${attendRate} </span>%</span>
           </div>
         </li>
-        <li class="item">
+        <li class="item" id="task" style="width: calc(33.3% - 4px);">
           <div class="title">
-            <span>출석률(강의)</span>
+            <span>원내 공지</span>
           </div>
-          <div class="info">
-            <span class="txt"><span class="point"> ${attendRate} </span>%</span>
-          </div>
+          <ul class="info">
+          <li><span class="point"> - </span></li>
+          </ul>
         </li>
-        <li class="item">
+        <li class="item" style="width: calc(33.3% - 4px);">
           <div class="title">
             <span>종강일</span>
           </div>
           <div class="info">
-            <span class="txt"><span class="point">D - ${Dday==0?Day:Dday}</span></span>
-          </div>
-        </li>
-        <li class="item">
-          <div class="title">
-            <span>오늘 일정</span>
-          </div>
-          <div class="info">
-            <ul>
-            <li><span class="txt"><span class="point">시험감독</span></span></li>
-            </ul>
+            <span class="txt">종강까지 <span class="point">D - ${Dday==0?Day:Dday}</span></span>
           </div>
         </li>
       </ul>

@@ -20,14 +20,6 @@
 							<td>${member.id}</td>
 						</tr>
 						<tr>
-							<th>패스워드</th>
-							<td>${member.password }</td>
-						</tr>
-						<%-- <tr>
-							<th>식별코드 </th>
-							<td>${member.code }</td>
-						</tr> --%>
-						<tr>
 							<th>분류</th>
 							<c:if test="${member.position eq 'S' }">
 								<td>학생</td>
@@ -54,10 +46,6 @@
 							<th>전화번호</th>
 							<td>${member.tell }</td>
 						</tr>
-						<%-- <tr>
-							<th>과목</th>
-							<td>${member.subject }</td>
-						</tr> --%>
 						<tr>
 						<th>과목</th>
 						<c:if test="${member.subject eq 'first' }">

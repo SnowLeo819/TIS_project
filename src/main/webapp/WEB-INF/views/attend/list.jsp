@@ -52,20 +52,6 @@
 				</table>
 			</div>
 		</div>
-		<div class="sideBar">
-			<ul class="list">
-				<li class="mainItem on">
-					<a href="../attend/attendAllList.do">
-						<p>출결 관리</p>
-					</a>
-				</li>
-				<li class="mainItem">
-					<a href="../attend/attendAllList.do">
-						<p>수업 일정</p>
-					</a>
-				</li>
-			</ul>
-		</div>
 	</div>
 </main>
 

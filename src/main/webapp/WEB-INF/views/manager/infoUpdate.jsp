@@ -6,12 +6,11 @@
 	<div class="contents">
 		<div id="inner">
 			<div class="title">
-				<h2><a href="../manager/ManageList.do">원생 관리</a><span> > 정보 수정</span></h2>
-				<span class="caution">※ 분류, 아이디, 비밀번호 변경은 삭제 후 재가입 해야합니다.</span>
+				<h2><a href="../manager/ManageList.do">원생정보 수정</h2>
 			</div>
 			<form action="../manager/InfoUpdateProcess.do?code=${memberDto.code }" method="POST" id="info"  class="form" >
-				<%-- <div> --%>
 					<table>
+						<caption><span class="caution">※ 분류, 아이디, 비밀번호 변경은 삭제 후 재등록 해야합니다.</span></caption>
 						<colgroup>
 							<col style="width: 20%" />
 							<col style="width: 80%" />
