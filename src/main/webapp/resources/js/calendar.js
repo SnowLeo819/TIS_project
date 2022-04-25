@@ -147,7 +147,7 @@ $(".calendar").on("click", ".dates ul .dateBox", function () {
 
   let data = year + month + date;
   console.log("눌렀어 /", data);
-  const dateBody = $("#detailBox .detail table tbody");
+  const dateBody = $("#detailBox .dtList table tbody");
   $.ajax({
     url: "../lecture/InnerView.do",
     type: "POST",
@@ -218,7 +218,7 @@ $(".calendar").on("click", ".dates ul .dateBox", function () {
 });
 
 // 버튼 누르면 모달 창 닫기 흠......
-const dateBody = $("#detailBox .detail table tbody");
+const dateBody = $("#detailBox .dtList table tbody");
 
 function detailClose() {
   gsap.to("#detailBox .detail", {
@@ -229,6 +229,9 @@ function detailClose() {
       dateBody.html("");
       $("#detailBox").hide();
       $("body").removeClass("overHidden");
+      if ($(".dtList").hasClass("hidden")) {
+        $("#detailBox .detail").toggleClass("hidden");
+      }
     },
   });
 }
@@ -239,4 +242,19 @@ $("#detailBox .topClose").on("click", function () {
 
 $("#detailBox .close").on("click", function () {
   detailClose();
+});
+
+$("#detailBox .insert").on("click", function () {
+  let title = $(".dtInput #title").val("");
+  let subject = $(".dtInput #subject").val("");
+  let contents = $(".dtInput #contents").val("");
+
+  console.log("저장 눌럿따", title, subject, contents);
+});
+
+$("#detailBox .toggle ").on("click", function () {
+  console.log("전환 눌렀다");
+  $(".dtInput input").val("");
+  $(".dtInput textarea").val("");
+  $("#detailBox .detail").toggleClass("hidden");
 });

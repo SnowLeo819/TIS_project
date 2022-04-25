@@ -12,6 +12,11 @@
    SELECT * FROM ATTEND WHERE subject = #{subject}
 </select>
 
+<!-- 과목출석현황(당일) -->
+<select id="getAllAttendDay" parameterType="String" resultType="AttendDto">
+   SELECT * FROM ATTEND WHERE subject = #{subject} AND ATTENDDATE = TRUNC(SYSDATE , 'DD')
+</select>
+
 <!-- 출석한번조회 -->
 <select id="getTodayAttend" parameterType="String" resultType="AttendDto">
 	SELECT * FROM ATTEND WHERE CODE = #{code} AND ATTENDDATE = TRUNC(SYSDATE , 'DD')
@@ -19,7 +24,7 @@
 
 <!-- 출석일수카운터 -->
 <select id="getAllAttendCount" parameterType="String" resultType="Integer">
-	SELECT count(*) FROM ATTEND WHERE CODE = #{code}
+	SELECT count(*) FROM ATTEND WHERE CODE = #{code} 
 </select>
 
 <!-- 퇴실시간 -->

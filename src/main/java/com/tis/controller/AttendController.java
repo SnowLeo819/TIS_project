@@ -108,10 +108,13 @@ public class AttendController {
 	   @RequestMapping("/Attend.do")
 	   public String attend(HttpServletRequest request, Model model,HttpSession session) {
 	      List<AttendDto> attendList = new ArrayList<>();
+	      
 	      MemberDto loggedMember = (MemberDto)session.getAttribute("loggedMember");
 	      String subject = loggedMember.getSubject();
 	      attendList = attendDao.getAllAttend(subject); //Dao 에서 준 데이터 박스
+	      
 	      model.addAttribute("attendList", attendList);// 보여주는 페이지에 줄 내용 박스
+	      
 	      return "attend/list";  // 보여줄 JSP 주소
 	   }
 	

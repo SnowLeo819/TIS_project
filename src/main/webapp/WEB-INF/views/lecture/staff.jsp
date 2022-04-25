@@ -115,11 +115,11 @@ pageEncoding="UTF-8"%> <%@ include file="../include/header.jsp"%>
         </tbody>
       </table>
       <div class="btns">
+        <button class="btn btnConfirm toggle">추가</button>
         <button class="btn close btnCancel">닫기</button>
-        <button class="btn btnConfirm">추가</button>
       </div>
     </div>
-    <div class="form detailInput">
+    <div class="form detail dtInput hidden">
       <table>
         <colgroup>
           <col style="width: 20%" />
@@ -138,24 +138,25 @@ pageEncoding="UTF-8"%> <%@ include file="../include/header.jsp"%>
               <select name="subject" id="subject">
                 <option value="" ${item.subject == "" ? selected : ""}>전체</option>
                 <option value="first" ${item.subject == "first" ? selected : ""}>프론트엔드 개발자 양성과정</option>
-                <option value="second" ${item.subject == "second" ? selected : ""}>2강의실: 백엔드 개발자 양성과정</option>
-                <option value="third" ${item.subject == "third" ? selected : ""}>3강의실: 풀스택 개발자 양성과정</option>
-                <option value="fourth" ${item.subject == "fourth" ? selected : ""}>4강의실: 퍼블리셔 양성과정</option>
-                <option value="fifth" ${item.subject == "fifth" ? selected : ""}>5강의실: 인공지능 개발자 양성과정</option>
-                <option value="sixth" ${item.subject == "sixth" ? selected : ""}>6강의실: 데이터 엔지니어 양성과정</option>
+                <option value="second" ${item.subject == "second" ? selected : ""}>백엔드 개발자 양성과정</option>
+                <option value="third" ${item.subject == "third" ? selected : ""}>풀스택 개발자 양성과정</option>
+                <option value="fourth" ${item.subject == "fourth" ? selected : ""}>퍼블리셔 양성과정</option>
+                <option value="fifth" ${item.subject == "fifth" ? selected : ""}>인공지능 개발자 양성과정</option>
+                <option value="sixth" ${item.subject == "sixth" ? selected : ""}>데이터 엔지니어 양성과정</option>
               </select>
             </td>
           </tr>
           <tr>
             <th>내용</th>
             <td class="left">
-              <input type="text" name="contents" id="contents" placeholder="세부내용을 입력하세요." />
+              <textarea type="text" name="contents" id="contents" placeholder="세부내용을 입력하세요."></textarea>
             </td>
           </tr>
         </tbody>
       </table>
       <div class="btns">
-        <button class="btn btnConfirm">저장</button>
+        <button class="btn btnConfirm insert">저장</button>
+        <button class="btn toggle btnCancel">취소</button>
         <button class="btn close btnCancel">닫기</button>
       </div>
     </div>

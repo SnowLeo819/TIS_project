@@ -59,3 +59,5 @@ body .overHidden { overflow: hidden; height: 100%; }
 #detailBox .detail .btns .btn { display: -webkit-box; display: -ms-flexbox; display: flex; width: 110px; height: 40px; border-radius: 5px; margin: 0 5px; color: #fff; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; font-size: 16px; }
 
 #detailBox .detail .btns .btn.close { background-color: #1414b8; }
+
+#detailBox .dtInput #contents { min-height: 100px; }

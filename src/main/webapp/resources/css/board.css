@@ -18,6 +18,8 @@
 
 .board .comment td .replyList .replyItem { width: 100%; display: -webkit-inline-box; display: -ms-inline-flexbox; display: inline-flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; margin: 5px; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 
+.board .comment td .replyList .replyItem:after { content: ""; width: 100%; border: 1px solid #d9d9d9; }
+
 .board .comment td .replyList .replyItem .replyBox { display: -webkit-inline-box; display: -ms-inline-flexbox; display: inline-flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; margin-right: 10px; width: calc(100% - 100px); }
 
 .board .comment td .replyList .replyItem .replyBox span { width: calc(20% - 5px); font-weight: 500; padding: 0 5px; text-align: center; }
