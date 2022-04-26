@@ -14,6 +14,8 @@ SELECT * FROM MEMBER;
 SELECT * FROM LECTURE;
 SELECT * FROM BOARD;
 SELECT * FROM REPLY;
+
+commit;
 --------------------------------------------------------
 --  DDL for Table ATTEND
 --------------------------------------------------------
