@@ -27,8 +27,13 @@
 </select>
 
 <!-- 출석일수카운터 -->
-<select id="getAllAttendCount" parameterType="String" resultType="Integer">
+<select id="getAllAttendCount" parameterType="AttendDto" resultType="Integer">
 	SELECT count(*) FROM ATTEND WHERE CODE = #{code} 
+</select>
+
+<!-- 출석일수카운터 (선생님) -->
+<select id="getStaffAttendCount" parameterType="AttendDto" resultType="Integer">
+	SELECT count(*) FROM ATTEND WHERE SUBJECT = #{subject} AND ATTENDDATE = TRUNC(SYSDATE,'DD')
 </select>
 
 <!-- 퇴실시간 -->

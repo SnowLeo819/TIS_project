@@ -39,10 +39,15 @@ public class AttendDao implements AttendService{
 		
 	//출석카운터일수
 	@Override
-	public int getAllAttendCount(String code) {
+	public int getAllAttendCount(AttendDto attendDto,String position) {
+		
 		int result = 0;
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		result = sqlSession.selectOne("getAllAttendCount",code);
+		if(position.equals("S")) {
+			result = sqlSession.selectOne("getAllAttendCount",attendDto);		
+		} else if(position.equals("T")||position.equals("M")) {
+			result = sqlSession.selectOne("getStaffAttendCount",attendDto);	
+		}
 		sqlSession.close();
 		return result;
 	}
@@ -71,55 +76,50 @@ public class AttendDao implements AttendService{
 	}
 	
 	//개인정보
-		@Override
-		public AttendDto AttendOneSelect(int no) {
-			AttendDto attendDto;
-			SqlSession sqlSession = sqlSessionFactory.openSession();
-			attendDto = sqlSession.selectOne("AttendOneSelect",no);
-			sqlSession.close();
-			return attendDto;
-		}
+	@Override
+	public AttendDto AttendOneSelect(int no) {
+		AttendDto attendDto;
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		attendDto = sqlSession.selectOne("AttendOneSelect",no);
+		sqlSession.close();
+		return attendDto;
+	}
+	
+	//시간수정
+	@Override
+	public int AttendUpdate(AttendDto attendDto) {
+		int result = 0;
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		result = sqlSession.update("AttendUpdate",attendDto);
+		sqlSession.commit();
+		sqlSession.close();
+		return result;
+	}
+	
+	//날짜리스트
+	@Override
+	public List<AttendDto> getDateList(String attendDate) {
+		List<AttendDto> attendDateList = new ArrayList<>();
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		attendDateList = sqlSession.selectList("selectDate",attendDate);
 		
-		//시간수정
-		@Override
-		public int AttendUpdate(AttendDto attendDto) {
-			int result = 0;
-			SqlSession sqlSession = sqlSessionFactory.openSession();
-			result = sqlSession.update("AttendUpdate",attendDto);
-			sqlSession.commit();
-			sqlSession.close();
-			return result;
-		}
+		System.out.println("dao="+attendDateList);
 		
-		//날짜리스트
-		@Override
-		public List<AttendDto> getDateList(String attendDate) {
-			List<AttendDto> attendDateList = new ArrayList<>();
-			SqlSession sqlSession = sqlSessionFactory.openSession();
-			attendDateList = sqlSession.selectList("selectDate",attendDate);
-			
-			System.out.println("dao="+attendDateList);
-			
-			sqlSession.close();
-			return attendDateList;
-		}
+		sqlSession.close();
+		return attendDateList;
+	}
+	
+	//시간차이계산
+    @Override
+    public int AttendState(AttendDto attendDto) {
+       int result=0;
+       SqlSession sqlSession = sqlSessionFactory.openSession();
+       result = sqlSession.selectOne("AttendState",attendDto);
+       sqlSession.close();
+       return result;
+    }
 		
-		//시간차이계산
-        @Override
-        public int AttendState(AttendDto attendDto) {
-           int result=0;
-           SqlSession sqlSession = sqlSessionFactory.openSession();
-           result = sqlSession.selectOne("AttendState",attendDto);
-           sqlSession.close();
-           return result;
-        }
-		
-		
-//	@Override
-//	public List<AttendDto> getAllList(int start, int end, String search_select, String search_word) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
+	
 
 	@Override
 	public List<AttendDto> getSearchAllList(String search_select, String search_word) {

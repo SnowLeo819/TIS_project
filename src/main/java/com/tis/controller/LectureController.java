@@ -54,18 +54,20 @@ public class LectureController {
 		String loggedCode = (String)session.getAttribute("loggedCode");
 		MemberDto member = (MemberDto)session.getAttribute("loggedMember");
 		String subject = member.getSubject().trim();
+		String position = (String)session.getAttribute("loggedPosition");
 		
 		String startDay = "20220401";	
 		String endDay = "20220426";
 		int setDate = lectureDao.getDay(startDay,endDay);
 		int Dday = lectureDao.getDDay(endDay);
 		
-		double attenCount = attendDao.getAllAttendCount(loggedCode); // 출결일수
-		double attendRate = attenCount/setDate*100;
+		AttendDto tempAttend = new AttendDto();
+		tempAttend.setSubject(subject);
+		tempAttend.setCode(loggedCode);
+		
+		double attendCount = attendDao.getAllAttendCount(tempAttend,position); // 출결일수
+		double attendRate = attendCount/setDate*100;
 		double roundRate = Math.round(attendRate*10)/10.0;
-//		System.out.println("출석일수="+attenCount); 
-//		System.out.println("출석률="+attendRate);
-//		System.out.println("출석률="+Math.round(attendRate*10)/10.0);
 
 		
 //	    SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm:ss");
@@ -98,7 +100,6 @@ public class LectureController {
 		model.addAttribute("Dday", Dday);
 		model.addAttribute("subject", subject);
 		
-		String position = (String)session.getAttribute("loggedPosition");
 		if(position.equals("S")) {
 			return "lecture/student";	
 		} else {

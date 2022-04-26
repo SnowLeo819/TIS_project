@@ -21,7 +21,12 @@ pageEncoding="UTF-8"%> <%@ include file="../include/header.jsp"%>
             <span>종강일</span>
           </div>
           <div class="info">
-            <span class="txt">종강까지 <span class="point">D - ${Dday==0?Day:Dday}</span></span>
+          	<c:if test="${Dday==0}">		          	
+            	<span class="txt"><span class="point">D - Day</span></span>
+           	</c:if>
+          	<c:if test="${Dday!=0}">		          	
+            	<span class="txt">종강까지 <span class="point">D - ${Dday}</span></span>
+           	</c:if>
           </div>
         </li>
         <li class="item">

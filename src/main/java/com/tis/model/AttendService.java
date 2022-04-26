@@ -38,7 +38,7 @@ public interface AttendService {
 	//시간계산
 	int AttendState(AttendDto attendDto);
 
-	int getAllAttendCount(String code);
+	int getAllAttendCount(AttendDto attendDto,String position);
 
 	AttendDto getTodayAttend(String code);
 
