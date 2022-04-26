@@ -11,6 +11,7 @@ public interface BoardService {
 		
 		// 수정
 		public int updateBoard(BoardDto boardDto);
+		public int updateReply(ReplyDto replyDto);
 
 		//검색
 		public List<BoardDto> getCateBoard(int start, int end,String search_select, String search_word, String category);
@@ -24,6 +25,7 @@ public interface BoardService {
 
 		//삭제
 		public int deleteBoard(int no);
+		
 		
 //		public BoardDto getPrevSelect(int num);
 //		public BoardDto getNextSelect(int num);

@@ -115,4 +115,16 @@ public class BoardDao implements BoardService{
 		sqlSession.close();
 		return boardList;
 	}
+	
+	@Override
+	   public int updateReply(ReplyDto replyDto) {
+	      int result = 0;
+	
+	      SqlSession sqlSession = sqlSessionFactory.openSession();
+	      result = sqlSession.update("updateReply",replyDto);
+	      sqlSession.commit();
+	      
+	      sqlSession.close();
+	      return result;
+	   }
 }

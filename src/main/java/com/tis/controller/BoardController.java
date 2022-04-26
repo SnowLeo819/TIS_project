@@ -281,4 +281,26 @@ public class BoardController {
 	}
 	
 	
+	@RequestMapping("/UpdateReply.do")
+	   @ResponseBody
+	   public Map<String, Object> updateReply(int no, String txt, Integer boardID, HttpSession session) {
+	      Map<String, Object> turnData = new HashMap<>();
+	      int result = 0;
+
+	      String code = (String) session.getAttribute("loggedCode");
+	      replyDto.setTxt(txt);
+	      replyDto.setNo(no);
+	      replyDto.setBoardId(boardID);
+
+	      result = replyDao.updateReply(replyDto);
+	      List<ReplyDto> replyList = replyDao.getReplyList(boardID);
+
+	      turnData.put("result", result);
+	      turnData.put("replyList", replyList);
+
+	      return turnData;
+	   }
+
+	
+	
 }

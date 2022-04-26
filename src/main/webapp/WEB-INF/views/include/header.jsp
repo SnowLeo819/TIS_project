@@ -20,7 +20,7 @@
 <link
    href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
    rel="stylesheet" />
-<link href="../summernote/summernote.min.css" rel="stylesheet" />
+<link href="../summernote/summernote-lite.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="../css/layout.css" />
 <link rel="stylesheet" href="../css/board.css" />
 <link rel="stylesheet" href="../css/form.css" />
@@ -30,6 +30,7 @@
 <link rel="stylesheet" href="../css/manager.css" />
 <script src="../js/jquery-3.6.0.min.js"></script>
 <script src="../js/gsap/gsap.min.js"></script>
+<script src="../summernote/summernote-lite.min.js "></script>
 <script src="../js/main.js" defer></script>
 </head>
 <body>

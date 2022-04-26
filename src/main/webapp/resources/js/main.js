@@ -1,3 +1,15 @@
+//서머노트 실행
+$(document).ready(function () {
+  $("#summernote").summernote({
+    height: 300, // 에디터 높이
+    minHeight: null, // 최소 높이
+    maxHeight: null, // 최대 높이
+    focus: true, // 에디터 로딩후 포커스를 맞출지 여부
+    lang: "ko-KR", // 한글 설정
+    // placeholder: "최대 2048자까지 쓸 수 있습니다",
+  });
+});
+
 //관리자 리스트 체크박스 기능
 const allCheckBox = $(".viewer table tbody tr td #selected");
 $(".viewer table #allSelected").click((e) => {
@@ -18,7 +30,8 @@ allCheckBox.click(function () {
 //아이디 중복 확인
 let idCheck = false;
 const korean = /[ㄱ-ㅎㅏ-ㅣ가-힣]/g;
-const email = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/; //이메일 정규식
+const email =
+  /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/; //이메일 정규식
 
 $("#btnIdCheck").on("click", function (e) {
   //e.preventDefault();
@@ -158,25 +171,28 @@ $("#now_date").on("change", function () {
 //ReplyDelete.do
 
 let insertUL = $(".replyList");
-$(".comment td .replyList").on("click", ".replyItem .btns #delete", function () {
-  let no = $(this).closest("li").data("no");
-  let boardID = $(".comment").data("id");
-  console.log("삭제눌렀어 / ", "boardID=", boardID, "no=", no);
-  $.ajax({
-    url: "../board/DeleteReply.do",
-    type: "GET",
-    data: {
-      no: no,
-      boardID: boardID,
-    },
-    success: function ({ replyList, result }) {
-      output = "";
-      if (result <= 0) {
-        alert("오류발생.. 잠시후 다시 시도해주세요.");
-        return;
-      } else {
-        replyList.forEach(function (item, idx) {
-          output += `	<li class="replyItem" data-no="${item.no}" data-code="${item.code}">
+$(".comment td .replyList").on(
+  "click",
+  ".replyItem .btns #delete",
+  function () {
+    let no = $(this).closest("li").data("no");
+    let boardID = $(".comment").data("id");
+    console.log("삭제눌렀어 / ", "boardID=", boardID, "no=", no);
+    $.ajax({
+      url: "../board/DeleteReply.do",
+      type: "GET",
+      data: {
+        no: no,
+        boardID: boardID,
+      },
+      success: function ({ replyList, result }) {
+        output = "";
+        if (result <= 0) {
+          alert("오류발생.. 잠시후 다시 시도해주세요.");
+          return;
+        } else {
+          replyList.forEach(function (item, idx) {
+            output += `	<li class="replyItem" data-no="${item.no}" data-code="${item.code}">
           <div class="replyBox">
           <span class="name">${item.name}</span>
           <span class="txt">${item.txt}</span>
@@ -191,13 +207,27 @@ $(".comment td .replyList").on("click", ".replyItem .btns #delete", function () 
           </button>
           </div>											
                       </li>`;
-        });
-      }
-      // console.log(output);
-      insertUL.html("");
-      insertUL.html(output);
-    },
-  });
+          });
+        }
+        // console.log(output);
+        insertUL.html("");
+        insertUL.html(output);
+      },
+    });
+  }
+);
+
+// 게시글 작성할 때 입력경고
+$("#write .btns .submit").on("click", function () {
+  if ($("#title").val() === "") {
+    alert("제목을 입력하세요.");
+    $("#title").focus();
+    return false;
+  } else if ($("#summernote").val() === "") {
+    alert("내용을 입력하세요.");
+    $("#summernote").focus();
+    return false;
+  }
 });
 
 // 댓글 입력
@@ -241,6 +271,73 @@ $(".comment .left .inputBox button").on("click", function () {
                       </li>`;
         });
       }
+      // console.log(output);
+      insertUL.html("");
+      insertUL.html(output);
+      $(".inputBox #reply").val("");
+    },
+  });
+});
+
+//댓글 수정창 띄우기
+//let insertUL = $(".replyList");
+$(".comment td .replyList").on(
+  "click",
+  ".replyItem .btns #update",
+  function () {
+    let ptxt = $(this)
+      .parents("li")
+      .children(".replyBox")
+      .children(".txt")
+      .text();
+    output =
+      `<input type="text" name="updateTxt" id="updateTXT" value=` +
+      ptxt +
+      ` />`;
+    $(this).parents("li").append(output);
+    $(this).attr("id", "edit");
+  }
+);
+
+$(".comment td .replyList").on("click", ".replyItem .btns #edit", function () {
+  let input = $(this).parents("li").children("input").val();
+  let boardID = $(".comment").data("id");
+  let no = $(this).closest("li").data("no");
+  console.log(no, input, boardID);
+  $.ajax({
+    url: "../board/UpdateReply.do",
+    type: "POST",
+    data: {
+      no: no,
+      txt: input,
+      boardID: boardID,
+    },
+    success: function ({ replyList, result }) {
+      output = "";
+      if (result <= 0) {
+        alert("오류발생.. 잠시후 다시 시도해주세요.");
+        return;
+      } else {
+        replyList.forEach(function (item, idx) {
+          output += `   <li class="replyItem" data-no="${item.no}" data-code="${item.code}">
+                        <div class="replyBox">
+                          <span class="name">${item.name}</span>
+                          <span class="txt">${item.txt}</span>
+                          <span class="date">${item.regDate}</span>
+                        </div>
+                        <div class="btns">
+                          <button type="button" class="btn sticker" id="update">
+                            <span class="material-icons">edit</span>
+                          </button>
+                          <button type="button" class="btn sticker" id="delete">
+                            <span class="material-icons">delete</span>
+                          </button>
+                        </div>                                 
+                      </li>`;
+        });
+      }
+      $(this).parents("li").children("input").remove(); //자식을 찾아서 remove
+      $(this).attr("id", "update");
       // console.log(output);
       insertUL.html("");
       insertUL.html(output);

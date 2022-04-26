@@ -100,4 +100,8 @@
 		DELETE FROM REPLY WHERE NO = #{no} AND CODE =#{code} 
 	</insert>
 		
+	<update id="updateReply" parameterType="ReplyDto">
+		UPDATE REPLY SET TXT = #{txt} WHERE NO = #{no} AND BOARDID = #{boardId}
+   	</update>	
+		
 </mapper>
