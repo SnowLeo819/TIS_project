@@ -19,14 +19,14 @@ let queryDate = "";
 
 // prevMonth
 $(".calendar .header .prev").on("click", () => {
-  console.log("prevMonth");
+  // console.log("prevMonth");
   pickedNow = new Date(pickedNow.getFullYear(), pickedNow.getMonth() - 1, 1);
   makeCalendar(pickedNow.getFullYear(), pickedNow.getMonth());
 });
 
 // nextMonth
 $(".calendar .header .next").on("click", () => {
-  console.log("nextMonth");
+  // console.log("nextMonth");
   pickedNow = new Date(pickedNow.getFullYear(), pickedNow.getMonth() + 1, 1);
   makeCalendar(pickedNow.getFullYear(), pickedNow.getMonth());
 });
@@ -55,7 +55,12 @@ function makeCalendar(pYear, pMonth) {
     selectYear = leapYear;
   }
 
-  queryDate = firstDay.getFullYear() + "" + addZero(firstDay.getMonth() + 1) + "" + addZero(firstDay.getDate());
+  queryDate =
+    firstDay.getFullYear() +
+    "" +
+    addZero(firstDay.getMonth() + 1) +
+    "" +
+    addZero(firstDay.getDate());
   $("#pickedDate").text(addZero(today.getDate()));
   $("#pickedDay").text(dayList[today.getDay()]);
 
@@ -65,19 +70,31 @@ function makeCalendar(pYear, pMonth) {
       output += `<li class="blank"><span></span></li>`;
       //continue;
     } else {
-      if (today.getDate() === count && today.getFullYear() === firstDay.getFullYear() && today.getMonth() === firstDay.getMonth()) {
-        output += `<li class="today dateBox" data-date="${count}" data-year="${firstDay.getFullYear()}" data-month="${firstDay.getMonth() + 1}">
+      if (
+        today.getDate() === count &&
+        today.getFullYear() === firstDay.getFullYear() &&
+        today.getMonth() === firstDay.getMonth()
+      ) {
+        output += `<li class="today dateBox" data-date="${count}" data-year="${firstDay.getFullYear()}" data-month="${
+          firstDay.getMonth() + 1
+        }">
                     <span>${count}</span>`;
       } else {
-        output += `<li class="dateBox ${firstDay.getFullYear()}.${firstDay.getMonth() + 1}.${count}" data-date="${count}" data-year="${firstDay.getFullYear()}" data-month="${firstDay.getMonth() + 1}">
+        output += `<li class="dateBox ${firstDay.getFullYear()}.${
+          firstDay.getMonth() + 1
+        }.${count}" data-date="${count}" data-year="${firstDay.getFullYear()}" data-month="${
+          firstDay.getMonth() + 1
+        }">
                     <div class="topBox">
                       <span>${count}</span>
                       </div>`;
       }
 
-      let date = `${firstDay.getFullYear()}${addZero(firstDay.getMonth() + 1)}${addZero(count)}`;
+      let date = `${firstDay.getFullYear()}${addZero(
+        firstDay.getMonth() + 1
+      )}${addZero(count)}`;
       let dateList = [];
-      console.log(date);
+      // console.log(date);
 
       // 해당일 강의일정 안내를 가져오는 ajax
       $.ajax({
@@ -97,7 +114,11 @@ function makeCalendar(pYear, pMonth) {
       if (dateList != null && dateList.length > 0) {
         output += `<div class="txtBox"><ul class="txtList">`;
         dateList.forEach(function (item, idx) {
-          if (today.getDate() === count && today.getFullYear() === firstDay.getFullYear() && today.getMonth() === firstDay.getMonth()) {
+          if (
+            today.getDate() === count &&
+            today.getFullYear() === firstDay.getFullYear() &&
+            today.getMonth() === firstDay.getMonth()
+          ) {
             ulOutput += `<li><span class="point">${item.contents}</span></li>`;
           }
           output += `<li class="item"><p>${item.contents}</p></li>`;
@@ -141,10 +162,15 @@ $(".calendar").on("click", ".dates ul .dateBox", function () {
   let data = year + month + date;
 
   selectedDay = data; // 입력 및 수정에 사용
-  dateSelect = $(this).data("year") + "." + $(this).data("month") + "." + $(this).data("date");
-  console.log(dateSelect);
+  dateSelect =
+    $(this).data("year") +
+    "." +
+    $(this).data("month") +
+    "." +
+    $(this).data("date");
+  // console.log(dateSelect);
 
-  console.log("눌렀어 /", data);
+  // console.log("눌렀어 /", data);
   const dateBody = $("#detailBox .dtList table tbody");
   $.ajax({
     url: "../lecture/InnerView.do",
@@ -161,22 +187,27 @@ $(".calendar").on("click", ".dates ul .dateBox", function () {
       // console.log(list.length);
       if (list.length <= 0) {
         alert("강의정보가 없습니다!");
-        $("body").addClass("overHidden");
-        $("#detailBox").show();
-        $("#detailBox .detail").toggleClass("hidden");
-        gsap.fromTo(
-          "#detailBox .detail",
-          { top: "-100%" },
-          {
-            top: "50%",
-            ease: "ease",
-            duration: 1,
-          }
-        );
+        console.log($("#detailBox .dtInput").length === 0);
+        if ($("#detailBox .dtInput").length === 0) {
+          console.log("읎어요!");
+        } else {
+          $("body").addClass("overHidden");
+          $("#detailBox").show();
+          $("#detailBox .detail").toggleClass("hidden");
+          gsap.fromTo(
+            "#detailBox .detail",
+            { top: "-100%" },
+            {
+              top: "50%",
+              ease: "ease",
+              duration: 1,
+            }
+          );
+        }
         return;
       }
       list.forEach(function (item, idx) {
-        console.log("item==" + item);
+        // console.log("item==" + item);
         output += `
                   <tr class="item${idx}">
                     <td>${item.contents}</td>`;
@@ -276,7 +307,7 @@ $("#detailBox .insert").on("click", function () {
     },
     success: function ({ result, lectureList }) {
       dateBody.html("");
-      console.log(result, lectureList);
+      // console.log(result, lectureList);
       output = "";
       outList = "";
       if (result <= 0) {
@@ -320,13 +351,13 @@ $("#detailBox .insert").on("click", function () {
   });
   let dateCellUl = $(dateSelect).find("txtList");
   dateCellUl.html(outList);
-  console.log(outList);
+  // console.log(outList);
   dateBody.html(output);
   $("#detailBox .detail").toggleClass("hidden");
 });
 
 $("#detailBox .toggle ").on("click", function () {
-  console.log("전환 눌렀다");
+  // console.log("전환 눌렀다");
   // $(".dtInput input").val("");
   $(".dtInput textarea").val("");
   $("#detailBox .detail").toggleClass("hidden");
